@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drasmqb1ohor5"
-path.s3tc="res://.godot/imported/GirlTutorialTest_Char1Tut_Tex.png-42d1ebac2e010dc19b388d904d287db9.s3tc.ctex"
+path.s3tc="res://.godot/imported/GirlTutorialTest_Char1Tut_Tex.png-28e5fa8e66c2b4123ebcd97f5849d5f3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://resources/GirlTutorialTest_Char1Tut_Tex.png"
-dest_files=["res://.godot/imported/GirlTutorialTest_Char1Tut_Tex.png-42d1ebac2e010dc19b388d904d287db9.s3tc.ctex"]
+source_file="res://assets/girl_test/GirlTutorialTest_Char1Tut_Tex.png"
+dest_files=["res://.godot/imported/GirlTutorialTest_Char1Tut_Tex.png-28e5fa8e66c2b4123ebcd97f5849d5f3.s3tc.ctex"]
 
 [params]
 

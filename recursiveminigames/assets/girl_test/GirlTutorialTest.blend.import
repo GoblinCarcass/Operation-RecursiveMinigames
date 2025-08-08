@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://11yqy3ioxo1b"
-path="res://.godot/imported/GirlTutorialTest.blend-03c5a3986931d61ec81281bd21c5ad8a.scn"
+path="res://.godot/imported/GirlTutorialTest.blend-c2309b6942a07da66d2be037c2a60f9a.scn"
 
 [deps]
 
-source_file="res://resources/GirlTutorialTest.blend"
-dest_files=["res://.godot/imported/GirlTutorialTest.blend-03c5a3986931d61ec81281bd21c5ad8a.scn"]
+source_file="res://assets/girl_test/GirlTutorialTest.blend"
+dest_files=["res://.godot/imported/GirlTutorialTest.blend-c2309b6942a07da66d2be037c2a60f9a.scn"]
 
 [params]
 
@@ -33,6 +33,12 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"materials": {
+"Char1Tut_Mat": {
+"use_external/enabled": true,
+"use_external/path": "uid://bk88iwpudmesx"
+}
+},
 "nodes": {
 "PATH:Cylinder": {
 "import/skip_import": true

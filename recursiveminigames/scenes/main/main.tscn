@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dmbggi5tr63fp"]
 
-[ext_resource type="PackedScene" uid="uid://11yqy3ioxo1b" path="res://resources/GirlTutorialTest.blend" id="1_iuonh"]
-[ext_resource type="Script" uid="uid://b5qyuy56ne1v" path="res://resources/girl_tutorial_test.gd" id="2_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://11yqy3ioxo1b" path="res://assets/girl_test/GirlTutorialTest.blend" id="1_iuonh"]
+[ext_resource type="Script" uid="uid://b5qyuy56ne1v" path="res://assets/girl_test/girl_tutorial_test.gd" id="2_k2fmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vom5j"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
