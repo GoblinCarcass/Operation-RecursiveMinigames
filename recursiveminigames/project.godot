@@ -45,3 +45,7 @@ enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res:
 [godot_resource_groups]
 
 auto_rebuild=true
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
