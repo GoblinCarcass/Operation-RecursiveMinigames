@@ -46,6 +46,10 @@ enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res:
 
 auto_rebuild=true
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
