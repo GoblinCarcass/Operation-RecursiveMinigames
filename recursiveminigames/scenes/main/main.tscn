@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmbggi5tr63fp"]
+[gd_scene load_steps=7 format=3 uid="uid://dmbggi5tr63fp"]
 
 [ext_resource type="PackedScene" uid="uid://ceo7bsiuu6vs" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 
@@ -15,6 +15,20 @@ sky = SubResource("Sky_hyk8p")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyk8p"]
+albedo_color = Color(0.737603, 0.400579, 0.116557, 1)
+
+[sub_resource type="GDScript" id="GDScript_iuonh"]
+resource_name = "TorusRotate"
+script/source = "extends CSGTorus3D
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
+	self.rotate_x(0.02)
+	self.rotate_z(0.01)
+	self.rotate_y(0.05)
+"
+
 [node name="GameController" type="Node"]
 
 [node name="Main" type="Node3D" parent="."]
@@ -26,14 +40,30 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Main"]
 environment = SubResource("Environment_iuonh")
 
-[node name="Greybox" type="Node3D" parent="Main"]
+[node name="Player" parent="Main" instance=ExtResource("1_hyk8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125279, 0.0605469, 6.50711)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Main/Greybox"]
+[node name="Greybox" type="CSGCombiner3D" parent="Main"]
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="Main/Greybox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.203522, -0.0166016, 0.0522232)
 use_collision = true
 size = Vector3(31.3956, 0.154297, 31.7045)
 
-[node name="Player" parent="Main/Greybox" instance=ExtResource("1_hyk8p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125279, 0.0605469, 6.50711)
+[node name="THE CUBE" type="CSGBox3D" parent="Main/Greybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.334791, -10.5295)
+
+[node name="THE CUBE2" type="CSGBox3D" parent="Main/Greybox"]
+transform = Transform3D(1.77888, 0, 0, 0, 2.44187, 0, 0, 0, 1, 8.67395, 0.334791, 0.0534267)
+
+[node name="THE CUBE3" type="CSGBox3D" parent="Main/Greybox"]
+transform = Transform3D(1.77888, 0, 0, 0, 2.44187, 0, 0, 0, 1, -7.72276, 0.399996, 2.47336)
+size = Vector3(0.337891, 1.05341, 12.2329)
+
+[node name="GloriousTorusOfWisdom" type="CSGTorus3D" parent="Main/Greybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95689, 0)
+material = SubResource("StandardMaterial3D_hyk8p")
+script = SubResource("GDScript_iuonh")
 
 [node name="UI_Main" type="CanvasLayer" parent="."]
