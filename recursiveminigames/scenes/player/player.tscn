@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceo7bsiuu6vs"]
+[gd_scene load_steps=4 format=3 uid="uid://ceo7bsiuu6vs"]
 
 [ext_resource type="PackedScene" uid="uid://x8w82oc2yan0" path="res://assets/girl_test_GlTF/girl_tutorial_test.tscn" id="1_8afob"]
+[ext_resource type="Script" uid="uid://d1hs76ejvobyp" path="res://scenes/player/player.gd" id="1_dovo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8afob"]
 height = 1.93324
@@ -8,6 +9,7 @@ height = 1.93324
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 513
 collision_mask = 513
+script = ExtResource("1_dovo2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996916, 0)
