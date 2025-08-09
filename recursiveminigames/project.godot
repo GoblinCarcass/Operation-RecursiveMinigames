@@ -50,6 +50,10 @@ auto_rebuild=true
 
 theme/default_font_multichannel_signed_distance_field=true
 
+[layer_names]
+
+3d_physics/layer_10="player_mask"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

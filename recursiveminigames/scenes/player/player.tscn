@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceo7bsiuu6vs"]
+
+[ext_resource type="PackedScene" uid="uid://x8w82oc2yan0" path="res://assets/girl_test_GlTF/girl_tutorial_test.tscn" id="1_8afob"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8afob"]
+height = 1.93324
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 513
+collision_mask = 513
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996916, 0)
+shape = SubResource("CapsuleShape3D_8afob")
+
+[node name="GirlTutorialTest" parent="." instance=ExtResource("1_8afob")]
+
+[node name="CameraRotator" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63575, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRotator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.19341)
+cull_mask = 1048063
