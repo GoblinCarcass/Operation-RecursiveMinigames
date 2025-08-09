@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceo7bsiuu6vs"]
+[gd_scene load_steps=8 format=3 uid="uid://ceo7bsiuu6vs"]
 
 [ext_resource type="PackedScene" uid="uid://x8w82oc2yan0" path="res://assets/girl_test_GlTF/girl_tutorial_test.tscn" id="1_8afob"]
 [ext_resource type="Script" uid="uid://d1hs76ejvobyp" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_p47bc"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_75vfm"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_0owmy"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_75vfm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8afob"]
 height = 1.93324
@@ -21,5 +25,87 @@ shape = SubResource("CapsuleShape3D_8afob")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63575, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRotator"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.19341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.237552)
 cull_mask = 1048063
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("3_p47bc")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("4_75vfm")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://jk2jm1g6q853"
+
+[node name="Idle" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_0owmy")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="to_Walking" type="Node" parent="StateChart/Root/Idle"]
+script = ExtResource("6_75vfm")
+to = NodePath("../../Walking")
+event = &"to_walking"
+delay_in_seconds = "0.0"
+
+[node name="to_Jumping" type="Node" parent="StateChart/Root/Idle"]
+script = ExtResource("6_75vfm")
+to = NodePath("../../Jumping")
+event = &"to_jumping"
+delay_in_seconds = "0.0"
+metadata/_custom_type_script = "uid://cf1nsco3w0mf6"
+
+[node name="Walking" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_0owmy")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="to_Idle" type="Node" parent="StateChart/Root/Walking"]
+script = ExtResource("6_75vfm")
+to = NodePath("../../Idle")
+event = &"to_idle"
+delay_in_seconds = "0.0"
+
+[node name="to_Running" type="Node" parent="StateChart/Root/Walking"]
+script = ExtResource("6_75vfm")
+to = NodePath("../../Running")
+event = &"to_running"
+delay_in_seconds = "0.0"
+
+[node name="to_Jumping" type="Node" parent="StateChart/Root/Walking"]
+script = ExtResource("6_75vfm")
+to = NodePath("../../Jumping")
+event = &"to_jumping"
+delay_in_seconds = "0.0"
+metadata/_custom_type_script = "uid://cf1nsco3w0mf6"
+
+[node name="Running" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_0owmy")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="to_Walking" type="Node" parent="StateChart/Root/Running"]
+script = ExtResource("6_75vfm")
+to = NodePath("../../Walking")
+event = &"to_walking"
+delay_in_seconds = "0.0"
+
+[node name="to_Jumping" type="Node" parent="StateChart/Root/Running"]
+script = ExtResource("6_75vfm")
+to = NodePath("../../Jumping")
+event = &"to_jumping"
+delay_in_seconds = "0.0"
+metadata/_custom_type_script = "uid://cf1nsco3w0mf6"
+
+[node name="Jumping" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_0owmy")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="stop_Jumping" type="Node" parent="StateChart/Root/Jumping"]
+script = ExtResource("6_75vfm")
+to = NodePath("../../Walking")
+event = &"stop_jumping"
+delay_in_seconds = "0.0"
+metadata/_custom_type_script = "uid://cf1nsco3w0mf6"
+
+[connection signal="state_physics_processing" from="StateChart/Root/Idle" to="." method="_on_idle_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Walking" to="." method="_on_walking_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/Running" to="." method="_on_running_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/Root/Jumping" to="." method="_on_jumping_state_entered"]
