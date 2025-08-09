@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-@onready var camera_rotator: Marker3D = $CameraRotator
-@onready var camera: Camera3D = $CameraRotator/Camera3D
+@onready var camera_rotator: Marker3D = %CameraRotator
+@onready var camera: Camera3D = %PlayerCamera
 @onready var model: Node3D = $GirlTutorialTest
-@onready var state: StateChart = $StateChart
+@onready var state: StateChart = %StateChart
 
 # Mouse sensitivity
 @export var sens_horizontal := 2
