@@ -19,7 +19,7 @@ script = ExtResource("1_dovo2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996916, 0)
 shape = SubResource("CapsuleShape3D_8afob")
 
-[node name="GirlTutorialTest" parent="." instance=ExtResource("1_8afob")]
+[node name="Model" parent="." instance=ExtResource("1_8afob")]
 
 [node name="CameraRotator" type="Marker3D" parent="."]
 unique_name_in_owner = true
