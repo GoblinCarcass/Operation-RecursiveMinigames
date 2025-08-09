@@ -29,6 +29,10 @@ run/main_scene="uid://dmbggi5tr63fp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MadTalkGlobals="*res://addons/madtalk/runtime/MadTalkGlobals.tscn"
+
 [display]
 
 window/size/viewport_width=1920
@@ -40,7 +44,7 @@ project/assembly_name="RecursiveMinigames"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/madtalk/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [godot_resource_groups]
 
