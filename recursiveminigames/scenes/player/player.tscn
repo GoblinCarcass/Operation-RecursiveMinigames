@@ -27,7 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63575, 0)
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraRotator"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.237552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.058849)
 cull_mask = 1048063
 
 [node name="StateChart" type="Node" parent="."]
