@@ -31,7 +31,7 @@ func handle_camera_rotation(event: InputEvent):
 		camera.rotate_x(-event.relative.y * sens_vertical / 100)
 		
 		#Limit camera rotation (no cartwheels lmao)
-		camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 
 func handle_gravity(delta: float):
