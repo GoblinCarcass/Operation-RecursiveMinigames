@@ -8,8 +8,8 @@ extends CharacterBody3D
 # Mouse sensitivity
 @export_range(0.2, 5, 0.2) var mouse_sensitivity: float
 
-const WALK_SPEED = 5.0
-const RUN_SPEED = 20
+const WALK_SPEED := 5.0
+const RUN_SPEED := 10.0
 const JUMP_VELOCITY = 4.5
 
 var _direction: Vector3 = Vector3.ZERO
@@ -67,7 +67,9 @@ func _on_idle_state_physics_processing(delta: float) -> void:
 
 
 func _on_walking_state_physics_processing(delta: float) -> void:
-	_input_dir = Input.get_vector("left", "right", "up", "down")
+	handle_movement(WALK_SPEED)
+	handle_gravity(delta)
+	move_and_slide()
 	
 	if !_input_dir:
 		state.send_event("to_idle")
@@ -76,9 +78,6 @@ func _on_walking_state_physics_processing(delta: float) -> void:
 	if Input.is_action_pressed("sprint"):
 		state.send_event("to_running")
 	
-	handle_movement(WALK_SPEED)
-	handle_gravity(delta)
-	move_and_slide()
 
 
 func _on_running_state_physics_processing(delta: float) -> void:
