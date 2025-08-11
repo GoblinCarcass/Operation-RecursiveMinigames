@@ -22,7 +22,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	handle_camera_rotation(event)
+	if event is InputEventMouseMotion:
+		handle_camera_rotation(event)
 	handle_interaction(event)
 
 
@@ -34,12 +35,11 @@ func handle_interaction(event: InputEvent):
 		
 
 func handle_camera_rotation(event: InputEvent):
-	if event is InputEventMouseMotion:
-		self.rotate_y(-event.relative.x * mouse_sensitivity / 500)
-		self.camera_rotator.rotate_x(-event.relative.y * mouse_sensitivity / 500)
-		
-		#Limit camera rotation (no cartwheels lmao)
-		camera_rotator.rotation.x = clampf(camera_rotator.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+	self.rotate_y(-event.relative.x * mouse_sensitivity / 500)
+	self.camera_rotator.rotate_x(-event.relative.y * mouse_sensitivity / 500)
+	
+	#Limit camera rotation (no cartwheels lmao)
+	camera_rotator.rotation.x = clampf(camera_rotator.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 
 func handle_gravity(delta: float):
