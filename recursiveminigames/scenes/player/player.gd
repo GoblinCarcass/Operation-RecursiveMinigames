@@ -6,8 +6,7 @@ extends CharacterBody3D
 @onready var state: StateChart = %StateChart
 
 # Mouse sensitivity
-@export_range(0.2, 5, 0.2) var sens_horizontal: float
-@export_range(0.2, 5, 0.2) var sens_vertical: float
+@export_range(0.2, 5, 0.2) var mouse_sensitivity: float
 
 const WALK_SPEED = 5.0
 const RUN_SPEED = 20
@@ -27,8 +26,8 @@ func _input(event: InputEvent) -> void:
 
 func handle_camera_rotation(event: InputEvent):
 	if event is InputEventMouseMotion:
-		self.rotate_y(-event.relative.x * sens_horizontal / 500)
-		camera.rotate_x(-event.relative.y * sens_vertical / 500)
+		self.rotate_y(-event.relative.x * mouse_sensitivity / 500)
+		camera.rotate_x(-event.relative.y * mouse_sensitivity / 500)
 		
 		#Limit camera rotation (no cartwheels lmao)
 		camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
