@@ -43,31 +43,38 @@ shadow_enabled = true
 environment = SubResource("Environment_iuonh")
 
 [node name="Player" parent="Main" instance=ExtResource("1_hyk8p")]
-transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -179.863, 0.0605469, -5.89674)
+transform = Transform3D(0.757439, 0, 0.652905, 0, 1, 0, -0.652905, 0, 0.757439, -80.511, 107.257, 138.509)
 mouse_sensitivity = 2.4
 
-[node name="Greybox" type="CSGCombiner3D" parent="Main"]
+[node name="Visuals" type="Node3D" parent="Main"]
+
+[node name="Greybox" type="CSGCombiner3D" parent="Main/Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.1895, 106.548, 133.389)
 use_collision = true
 
-[node name="THE CUBE" type="CSGBox3D" parent="Main/Greybox"]
+[node name="THE FLOOR" type="CSGBox3D" parent="Main/Visuals/Greybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180.004, -0.141703, 0.732666)
+size = Vector3(23.7384, 0.001, 26.3247)
+
+[node name="THE CUBE" type="CSGBox3D" parent="Main/Visuals/Greybox"]
 transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -180.067, 0.334791, 11.1391)
 
-[node name="THE CUBE2" type="CSGBox3D" parent="Main/Greybox"]
+[node name="THE CUBE2" type="CSGBox3D" parent="Main/Visuals/Greybox"]
 transform = Transform3D(-1.77886, 0, 0.00464262, 0, 2.44187, 0, -0.00825866, 0, -0.999989, -188.692, 0.334791, 0.516025)
 
-[node name="THE CUBE3" type="CSGBox3D" parent="Main/Greybox"]
+[node name="THE CUBE3" type="CSGBox3D" parent="Main/Visuals/Greybox"]
 transform = Transform3D(-1.77886, 0, 0.00464262, 0, 2.44187, 0, -0.00825866, 0, -0.999989, -172.284, 0.399996, -1.82776)
 size = Vector3(0.337891, 1.05341, 12.2329)
 
-[node name="GloriousTorusOfWisdom" type="CSGTorus3D" parent="Main/Greybox"]
+[node name="GloriousTorusOfWisdom" type="CSGTorus3D" parent="Main/Visuals/Greybox"]
 transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -180.018, 1.95689, 0.609721)
 material = SubResource("StandardMaterial3D_hyk8p")
 script = SubResource("GDScript_k2fmo")
 
-[node name="TorusNpc" parent="Main/Greybox" instance=ExtResource("2_iuonh")]
+[node name="TorusNpc" parent="Main/Visuals/Greybox" instance=ExtResource("2_iuonh")]
 transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -185.349, 1.71332, -2.72551)
 collision_layer = 3
 
-[node name="damTest" parent="Main/Greybox" instance=ExtResource("3_k2fmo")]
+[node name="damTest" parent="Main/Visuals" instance=ExtResource("3_k2fmo")]
 
 [node name="UI_Main" type="CanvasLayer" parent="."]
