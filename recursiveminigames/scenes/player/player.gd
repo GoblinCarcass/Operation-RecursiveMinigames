@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var camera: Camera3D = %PlayerCamera
 @onready var model: Node3D = $Model
 @onready var state: StateChart = %StateChart
-@onready var interaction_raycast: RayCast3D = %InteractionRaycast
+@onready var i_ray: RayCast3D = %InteractionRaycast
 
 # Mouse sensitivity
 @export_range(0.2, 5, 0.2) var mouse_sensitivity: float
@@ -23,7 +23,15 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	handle_camera_rotation(event)
+	handle_interaction(event)
 
+
+func handle_interaction(event: InputEvent):
+	if event.is_action("interaction"):
+		var i_object: Node3D = i_ray.get_collider()
+		if i_object.is_in_group("interactable"):
+			i_object.interact()
+		
 
 func handle_camera_rotation(event: InputEvent):
 	if event is InputEventMouseMotion:
