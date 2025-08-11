@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://11yqy3ioxo1b"
-path="res://.godot/imported/GirlTutorialTest.blend-c2309b6942a07da66d2be037c2a60f9a.scn"
+path="res://.godot/imported/GirlTutorialTest.blend-0a944d3779417e45956973a38b3920db.scn"
 
 [deps]
 
-source_file="res://assets/girl_test/GirlTutorialTest.blend"
-dest_files=["res://.godot/imported/GirlTutorialTest.blend-c2309b6942a07da66d2be037c2a60f9a.scn"]
+source_file="res://assets/girl_test_blender/GirlTutorialTest.blend"
+dest_files=["res://.godot/imported/GirlTutorialTest.blend-0a944d3779417e45956973a38b3920db.scn"]
 
 [params]
 

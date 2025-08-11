@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ccia21difor78" path="res://assets/girl_test_GlTF/GirlTutorialTest.glb" id="1_31fy5"]
 
-[node name="GirlTutorialTest" instance=ExtResource("1_31fy5")]
+[node name="GirlTutorialTestModel" instance=ExtResource("1_31fy5")]
 
 [node name="Cylinder_001" parent="." index="0"]
 layers = 512
