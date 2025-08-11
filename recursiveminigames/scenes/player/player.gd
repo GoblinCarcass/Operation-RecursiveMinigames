@@ -6,8 +6,8 @@ extends CharacterBody3D
 @onready var state: StateChart = %StateChart
 
 # Mouse sensitivity
-@export var sens_horizontal := 2
-@export var sens_vertical := 2
+@export_range(0.5, 5, 0.5) var sens_horizontal: float
+@export_range(0.5, 5, 0.5) var sens_vertical: float
 
 const WALK_SPEED = 5.0
 const RUN_SPEED = 20
