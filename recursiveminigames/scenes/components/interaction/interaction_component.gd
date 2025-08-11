@@ -9,5 +9,5 @@ func _ready() -> void:
 
 
 func interact() -> void:
-	print("I am interacting!")
+	#print("I am interacting!")
 	interaction_started.emit()
