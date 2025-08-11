@@ -42,6 +42,8 @@ environment = SubResource("Environment_iuonh")
 
 [node name="Player" parent="Main" instance=ExtResource("1_hyk8p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125279, 0.0605469, 6.50711)
+sens_horizontal = 2.4
+sens_vertical = 2.4
 
 [node name="Greybox" type="CSGCombiner3D" parent="Main"]
 use_collision = true
