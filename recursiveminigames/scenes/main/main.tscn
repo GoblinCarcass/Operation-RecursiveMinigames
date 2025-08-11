@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ceo7bsiuu6vs" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://b1hs4i2co5s46" path="res://scenes/npc/torus/torus_npc.tscn" id="2_iuonh"]
-[ext_resource type="PackedScene" uid="uid://qoou4psruspj" path="res://assets/damLevel/damTest.glb" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://big5ctwcxjhbq" path="res://assets/damLevel/dam_test.tscn" id="3_k2fmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vom5j"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
