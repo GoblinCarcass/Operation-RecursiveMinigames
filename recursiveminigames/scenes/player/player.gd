@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @onready var camera_rotator: Marker3D = %CameraRotator
 @onready var camera: Camera3D = %PlayerCamera
-@onready var model: Node3D = $Model
+@onready var model: Node3D = %Model
 @onready var state: StateChart = %StateChart
 @onready var i_ray: RayCast3D = %InteractionRaycast
 
@@ -36,7 +36,7 @@ func handle_interaction(event: InputEvent):
 func handle_camera_rotation(event: InputEvent):
 	if event is InputEventMouseMotion:
 		self.rotate_y(-event.relative.x * mouse_sensitivity / 500)
-		camera_rotator.rotate_x(-event.relative.y * mouse_sensitivity / 500)
+		self.camera_rotator.rotate_x(-event.relative.y * mouse_sensitivity / 500)
 		
 		#Limit camera rotation (no cartwheels lmao)
 		camera_rotator.rotation.x = clampf(camera_rotator.rotation.x, deg_to_rad(-60), deg_to_rad(60))

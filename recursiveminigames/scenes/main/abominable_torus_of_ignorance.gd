@@ -1,7 +1,12 @@
 extends MeshInstance3D
 
+@export_range(0, 1, 0.05) var rot_x
+@export_range(0, 1, 0.05) var rot_y
+@export_range(0, 1, 0.05) var rot_z
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	self.rotate_x(0.003)
-	self.rotate_z(0.005)
-	self.rotate_y(0.002)
+	self.rotate_x(rot_x / 100)
+	self.rotate_y(rot_y / 100)
+	self.rotate_z(rot_z / 100)

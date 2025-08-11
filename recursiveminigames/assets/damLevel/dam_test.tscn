@@ -1,5 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://big5ctwcxjhbq"]
+[gd_scene load_steps=3 format=3 uid="uid://big5ctwcxjhbq"]
 
 [ext_resource type="PackedScene" uid="uid://qoou4psruspj" path="res://assets/damLevel/damTest.glb" id="1_7carv"]
+[ext_resource type="Script" uid="uid://s8if7qr8i4c4" path="res://scenes/main/abominable_torus_of_ignorance.gd" id="2_tqpkd"]
 
 [node name="damTest" instance=ExtResource("1_7carv")]
+
+[node name="AbominableTorusOfIgnorance" parent="." index="9"]
+script = ExtResource("2_tqpkd")
+rot_x = 0.6
+rot_y = 0.6
+rot_z = 0.6
+
+[node name="AbominableTorusOfIgnorance_001" parent="." index="10"]
+script = ExtResource("2_tqpkd")
+rot_x = 0.3
+rot_y = 0.3
+rot_z = 0.3

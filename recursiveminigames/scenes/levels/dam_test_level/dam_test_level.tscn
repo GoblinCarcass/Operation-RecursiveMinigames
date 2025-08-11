@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnmajhvikw30p"]
+
+[ext_resource type="PackedScene" uid="uid://big5ctwcxjhbq" path="res://assets/damLevel/dam_test.tscn" id="1_ap0m8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3bs2h"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_2f13s"]
+sky_material = SubResource("ProceduralSkyMaterial_3bs2h")
+
+[sub_resource type="Environment" id="Environment_dradd"]
+background_mode = 2
+sky = SubResource("Sky_2f13s")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="DamTestLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dradd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="damTest" parent="Visuals" instance=ExtResource("1_ap0m8")]
+metadata/_edit_lock_ = true

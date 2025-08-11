@@ -20,15 +20,15 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyk8p"]
 albedo_color = Color(0.737603, 0.400579, 0.116557, 1)
 
-[sub_resource type="GDScript" id="GDScript_iuonh"]
-resource_name = "TorusRotate"
-script/source = "extends CSGTorus3D
+[sub_resource type="GDScript" id="GDScript_k2fmo"]
+script/source = "extends Node3D
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(_delta: float) -> void:
-	self.rotate_x(0.02)
-	self.rotate_z(0.01)
-	self.rotate_y(0.05)
+
+func _physics_process(delta: float) -> void:
+	self.rotate_x(1 * delta)
+	self.rotate_z(0.5 * delta)
+	self.rotate_y(2.5 * delta)
+	
 "
 
 [node name="GameController" type="Node"]
@@ -62,7 +62,7 @@ size = Vector3(0.337891, 1.05341, 12.2329)
 [node name="GloriousTorusOfWisdom" type="CSGTorus3D" parent="Main/Greybox"]
 transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -180.018, 1.95689, 0.609721)
 material = SubResource("StandardMaterial3D_hyk8p")
-script = SubResource("GDScript_iuonh")
+script = SubResource("GDScript_k2fmo")
 
 [node name="TorusNpc" parent="Main/Greybox" instance=ExtResource("2_iuonh")]
 transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -185.349, 1.71332, -2.72551)
