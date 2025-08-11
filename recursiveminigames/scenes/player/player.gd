@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var camera: Camera3D = %PlayerCamera
 @onready var model: Node3D = $Model
 @onready var state: StateChart = %StateChart
+@onready var interaction_raycast: RayCast3D = %InteractionRaycast
 
 # Mouse sensitivity
 @export_range(0.2, 5, 0.2) var mouse_sensitivity: float
@@ -27,10 +28,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func handle_camera_rotation(event: InputEvent):
 	if event is InputEventMouseMotion:
 		self.rotate_y(-event.relative.x * mouse_sensitivity / 500)
-		camera.rotate_x(-event.relative.y * mouse_sensitivity / 500)
+		camera_rotator.rotate_x(-event.relative.y * mouse_sensitivity / 500)
 		
 		#Limit camera rotation (no cartwheels lmao)
-		camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+		camera_rotator.rotation.x = clampf(camera_rotator.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 
 func handle_gravity(delta: float):

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmbggi5tr63fp"]
+[gd_scene load_steps=8 format=3 uid="uid://dmbggi5tr63fp"]
 
 [ext_resource type="PackedScene" uid="uid://ceo7bsiuu6vs" path="res://scenes/player/player.tscn" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://b1hs4i2co5s46" path="res://scenes/npc/torus/torus_npc.tscn" id="2_iuonh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vom5j"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -66,5 +67,9 @@ size = Vector3(0.337891, 1.05341, 12.2329)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95689, 0)
 material = SubResource("StandardMaterial3D_hyk8p")
 script = SubResource("GDScript_iuonh")
+
+[node name="TorusNpc" parent="Main/Greybox" instance=ExtResource("2_iuonh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3458, 1.71332, 3.31045)
+collision_layer = 3
 
 [node name="UI_Main" type="CanvasLayer" parent="."]

@@ -23,12 +23,18 @@ shape = SubResource("CapsuleShape3D_8afob")
 
 [node name="CameraRotator" type="Marker3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63575, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="PlayerCamera" type="Camera3D" parent="CameraRotator"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.058849)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
 cull_mask = 1048063
+
+[node name="InteractionRaycast" type="RayCast3D" parent="CameraRotator"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+target_position = Vector3(0, 0, -3)
+collision_mask = 2
 
 [node name="StateChart" type="Node" parent="."]
 unique_name_in_owner = true
