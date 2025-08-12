@@ -5,14 +5,20 @@
 
 [node name="damTest" instance=ExtResource("1_7carv")]
 
-[node name="AbominableTorusOfIgnorance" parent="." index="9"]
+[node name="AbominableTorusOfIgnorance" parent="Scene Collection/Collection" index="6"]
 script = ExtResource("2_tqpkd")
-rot_x = 0.6
-rot_y = 0.6
-rot_z = 0.6
+rot_x = 0.05
+rot_y = 0.1
+rot_z = 0.15
 
-[node name="AbominableTorusOfIgnorance_001" parent="." index="10"]
+[node name="AbominableTorusOfIgnorance_001" parent="Scene Collection/Collection" index="7"]
 script = ExtResource("2_tqpkd")
-rot_x = 0.3
-rot_y = 0.3
+rot_x = 0.1
+rot_y = 0.2
 rot_z = 0.3
+
+[node name="AbominableTorusOfIgnorance_002" parent="Scene Collection/Collection" index="10"]
+script = ExtResource("2_tqpkd")
+rot_x = 0.5
+rot_y = 0.85
+rot_z = 0.25
