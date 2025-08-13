@@ -8,6 +8,7 @@ func _ready() -> void:
 	#print("Hello from Interaction Component!")
 
 
+# Called externally
 func interact() -> void:
 	#print("I am interacting!")
 	interaction_started.emit()

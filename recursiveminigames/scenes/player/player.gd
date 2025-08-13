@@ -7,8 +7,9 @@ extends CharacterBody3D
 @onready var i_ray: RayCast3D = %InteractionRaycast
 
 # Mouse sensitivity
-@export_range(0.2, 5, 0.2) var mouse_sensitivity: float
+@export_range(0, 10, 0.2) var mouse_sensitivity: float
 
+const DEFAULT_MOUSE_SENSITIVITY := 2.4
 const WALK_SPEED := 5.0
 const RUN_SPEED := 10.0
 const JUMP_VELOCITY = 4.5
@@ -18,23 +19,25 @@ var _input_dir: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
+	if mouse_sensitivity == 0:
+		mouse_sensitivity = DEFAULT_MOUSE_SENSITIVITY
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		handle_camera_rotation(event)
-	handle_interaction(event)
-
-
-func handle_interaction(event: InputEvent):
 	if event.is_action("interaction"):
-		var i_object: Node3D = i_ray.get_collider()
-		if i_object.is_in_group("interactable"):
-			i_object.interact()
-		
+		handle_interaction()
 
-func handle_camera_rotation(event: InputEvent):
+
+func handle_interaction() -> void:
+	var i_object: Node3D = i_ray.get_collider()
+	if i_object.is_in_group("interactable"):
+		i_object.interact()
+
+
+func handle_camera_rotation(event: InputEvent) -> void:
 	self.rotate_y(-event.relative.x * mouse_sensitivity / 500)
 	self.camera_rotator.rotate_x(-event.relative.y * mouse_sensitivity / 500)
 	
@@ -42,17 +45,17 @@ func handle_camera_rotation(event: InputEvent):
 	camera_rotator.rotation.x = clampf(camera_rotator.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 
-func handle_gravity(delta: float):
+func handle_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 
-func handle_jump():
+func handle_jump() -> void:
 	velocity.y = JUMP_VELOCITY
 
 
 
-func handle_movement(speed: float):
+func handle_movement(speed: float) -> void:
 	_input_dir = Input.get_vector("left", "right", "up", "down")
 	_direction = (transform.basis * Vector3(_input_dir.x, 0, _input_dir.y)).normalized()
 	if _direction:
