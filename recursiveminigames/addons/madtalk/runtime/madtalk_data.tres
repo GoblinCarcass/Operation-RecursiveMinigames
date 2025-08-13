@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogData" load_steps=74 format=3 uid="uid://dxkjjrap15vxu"]
+[gd_resource type="Resource" script_class="DialogData" load_steps=89 format=3 uid="uid://dxkjjrap15vxu"]
 
 [ext_resource type="Script" uid="uid://bw2q2eucjkylk" path="res://addons/madtalk/components/resources/DialogData.gd" id="1_giduu"]
 [ext_resource type="Script" uid="uid://c2bv5lwcvdmrb" path="res://addons/madtalk/components/resources/DialogNodeItemData.gd" id="2_48vp3"]
@@ -882,14 +882,46 @@ sheet_description = ""
 next_sequence_id = 4
 nodes = [SubResource("Resource_28bfi"), SubResource("Resource_wn6qm"), SubResource("Resource_5vhe7"), SubResource("Resource_pnwrx")]
 
-[sub_resource type="Resource" id="quugv"]
+[sub_resource type="Resource" id="ig706"]
 script = ExtResource("2_48vp3")
-item_type = 0
+item_type = 1
+connected_to_id = 3
+message_speaker_id = ""
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = ""
+message_voice_clip_locales = {}
+message_text_locales = {}
+message_hide_on_end = 0
+condition_type = 1
+condition_values = ["visited_torus", 0]
+effect_type = 10
+effect_values = []
+
+[sub_resource type="Resource" id="uj1nl"]
+script = ExtResource("2_48vp3")
+item_type = 2
 connected_to_id = -1
 message_speaker_id = ""
 message_speaker_variant = ""
 message_voice_clip = ""
-message_text = "Coca cola es puma"
+message_text = ""
+message_voice_clip_locales = {}
+message_text_locales = {}
+message_hide_on_end = 0
+condition_type = 10
+condition_values = []
+effect_type = 1
+effect_values = ["visited_torus", 1.0]
+
+[sub_resource type="Resource" id="quugv"]
+script = ExtResource("2_48vp3")
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "torus_of_wisdom"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Hello Tiphany..."
 message_voice_clip_locales = {}
 message_text_locales = {}
 message_hide_on_end = 0
@@ -898,22 +930,205 @@ condition_values = []
 effect_type = 10
 effect_values = []
 
+[sub_resource type="Resource" id="wspnu"]
+script = ExtResource("2_48vp3")
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "mc"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Hello?"
+message_voice_clip_locales = {}
+message_text_locales = {}
+message_hide_on_end = 0
+condition_type = 10
+condition_values = []
+effect_type = 10
+effect_values = []
+
+[sub_resource type="Resource" id="Resource_6yf53"]
+script = ExtResource("2_48vp3")
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "torus_of_wisdom"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "You may not know me, but I do know you..."
+message_voice_clip_locales = {}
+message_text_locales = {}
+message_hide_on_end = 0
+condition_type = 10
+condition_values = []
+effect_type = 10
+effect_values = []
+
+[sub_resource type="Resource" id="gi4cx"]
+script = ExtResource("2_48vp3")
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "torus_of_wisdom"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "I am a great fun of free will, therefore I will not force your hand, but I do have a quest for you. Do you agree to participate?"
+message_voice_clip_locales = {}
+message_text_locales = {}
+message_hide_on_end = 0
+condition_type = 10
+condition_values = []
+effect_type = 10
+effect_values = []
+
+[sub_resource type="Resource" id="Resource_wspnu"]
+script = ExtResource("3_dways")
+text = "Accept"
+text_locales = {
+"": "Accept"
+}
+connected_to_id = 1
+is_conditional = false
+condition_variable = ""
+condition_operator = "="
+condition_value = ""
+autodisable_mode = 0
+inactive_mode = 0
+
+[sub_resource type="Resource" id="Resource_0mplr"]
+script = ExtResource("3_dways")
+text = "Refuse"
+text_locales = {
+"": "Refuse"
+}
+connected_to_id = 2
+is_conditional = false
+condition_variable = ""
+condition_operator = "="
+condition_value = ""
+autodisable_mode = 0
+inactive_mode = 0
+
 [sub_resource type="Resource" id="kur6e"]
 script = ExtResource("4_f2ijm")
 sequence_id = 0
-position = Vector2(0, 0)
+position = Vector2(-660, 120)
 comment = ""
-items = [SubResource("quugv")]
+items = [SubResource("ig706"), SubResource("uj1nl"), SubResource("quugv"), SubResource("wspnu"), SubResource("Resource_6yf53"), SubResource("gi4cx")]
+options = [SubResource("Resource_wspnu"), SubResource("Resource_0mplr")]
+continue_sequence_id = -1
+continue_port_index = -1
+
+[sub_resource type="Resource" id="0mplr"]
+script = ExtResource("2_48vp3")
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "torus_of_wisdom"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "Great. Let's begin then... (Pay 29.99$ for more Torus content)"
+message_voice_clip_locales = {}
+message_text_locales = {}
+message_hide_on_end = 0
+condition_type = 10
+condition_values = []
+effect_type = 10
+effect_values = []
+
+[sub_resource type="Resource" id="mjnvi"]
+script = ExtResource("4_f2ijm")
+sequence_id = 1
+position = Vector2(560, 260)
+comment = ""
+items = [SubResource("0mplr")]
 options = []
 continue_sequence_id = -1
 continue_port_index = 0
 
+[sub_resource type="Resource" id="hkg3h"]
+script = ExtResource("2_48vp3")
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "torus_of_wisdom"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "What a waste.
+I will be awaiting you when you change your mind..."
+message_voice_clip_locales = {}
+message_text_locales = {}
+message_hide_on_end = 0
+condition_type = 10
+condition_values = []
+effect_type = 10
+effect_values = []
+
+[sub_resource type="Resource" id="6yf53"]
+script = ExtResource("4_f2ijm")
+sequence_id = 2
+position = Vector2(560, 480)
+comment = ""
+items = [SubResource("hkg3h")]
+options = []
+continue_sequence_id = -1
+continue_port_index = 0
+
+[sub_resource type="Resource" id="86kbs"]
+script = ExtResource("2_48vp3")
+item_type = 0
+connected_to_id = -1
+message_speaker_id = "torus_of_wisdom"
+message_speaker_variant = ""
+message_voice_clip = ""
+message_text = "So, Tiphany... Have you made your mind already?"
+message_voice_clip_locales = {}
+message_text_locales = {}
+message_hide_on_end = 0
+condition_type = 10
+condition_values = []
+effect_type = 10
+effect_values = []
+
+[sub_resource type="Resource" id="Resource_hkg3h"]
+script = ExtResource("3_dways")
+text = "Accept"
+text_locales = {
+"": "Accept"
+}
+connected_to_id = 1
+is_conditional = false
+condition_variable = ""
+condition_operator = "="
+condition_value = ""
+autodisable_mode = 0
+inactive_mode = 0
+
+[sub_resource type="Resource" id="Resource_uwwod"]
+script = ExtResource("3_dways")
+text = "Turn Back Again"
+text_locales = {
+"": "Turn Back Again"
+}
+connected_to_id = 2
+is_conditional = false
+condition_variable = ""
+condition_operator = "="
+condition_value = ""
+autodisable_mode = 0
+inactive_mode = 0
+
+[sub_resource type="Resource" id="6d3fn"]
+script = ExtResource("4_f2ijm")
+sequence_id = 3
+position = Vector2(80, 80)
+comment = ""
+items = [SubResource("86kbs")]
+options = [SubResource("Resource_hkg3h"), SubResource("Resource_uwwod")]
+continue_sequence_id = -1
+continue_port_index = -1
+
 [sub_resource type="Resource" id="Resource_mjnvi"]
 script = ExtResource("5_vkpn8")
-sheet_id = "new_sheet_1"
+sheet_id = "test_dialog_with_a_torus"
 sheet_description = ""
-next_sequence_id = 1
-nodes = [SubResource("kur6e")]
+next_sequence_id = 7
+nodes = [SubResource("kur6e"), SubResource("mjnvi"), SubResource("6yf53"), SubResource("6d3fn")]
 
 [resource]
 script = ExtResource("1_giduu")
@@ -924,5 +1139,5 @@ sheets = {
 "external_menu": SubResource("15"),
 "localized": SubResource("Resource_cvf4j"),
 "minimum_menu": SubResource("Resource_s3y14"),
-"new_sheet_1": SubResource("Resource_mjnvi")
+"test_dialog_with_a_torus": SubResource("Resource_mjnvi")
 }
