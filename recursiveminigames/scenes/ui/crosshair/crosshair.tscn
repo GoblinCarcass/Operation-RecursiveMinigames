@@ -33,4 +33,3 @@ stretch_mode = 3
 
 [node name="CrosshairText" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Press E to interact"
