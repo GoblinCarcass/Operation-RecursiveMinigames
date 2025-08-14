@@ -13,8 +13,10 @@ const WALK_SPEED := 5.0
 const RUN_SPEED := 10.0
 const JUMP_VELOCITY = 4.5
 
-var _direction: Vector3 = Vector3.ZERO
+## The direction of the WSAD input
 var _input_dir: Vector2 = Vector2.ZERO
+## The actual direction the player is moving to (includes jumping)
+var _direction: Vector3 = Vector3.ZERO
 
 var can_move: bool = true
 
