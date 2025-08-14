@@ -1,9 +1,0 @@
-Include a mesh that is a mesh, and a can of sprite with a sprite
-
-
-
-Physical object you can move and carry that functions like a pocket minigame.
-/* SCOPE WARNING DOOT DOOT. SCOPE TOO BIG.
-Would work really well if we were making something closer to a puzzle game, where you collect minigames and use them like tools, for example: some for picking locks, some for hacking, some for combat. Further example: you can't hack a computer because in the dedicated turn-based hacking minigame the security system is too strong, instead you open it up in a movement fps minigame and style on the security kill-squad with pure skill, or lose even harder. The survival horror game too scary? No worries mate BOOT UP THE RACING GAME, don't know about you but I'm willing to bet that the eldritch flesh monster that crawled out of a cave and speaks in your dead friend's voice doesn't know how to drive a manual.
--If- when we finish the 1st game this could be an idea for a sequel. One thing at a time.
-*/

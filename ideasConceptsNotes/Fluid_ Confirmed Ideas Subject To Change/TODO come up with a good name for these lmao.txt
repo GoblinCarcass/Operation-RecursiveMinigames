@@ -1,3 +1,0 @@
-Objects which trigger the next minigame will be styled as if they come from said minigame. e.g. a door leading to a "retro horror collect x items" game, will be pixelized. or an entrance into a motherload style game will have you get inside the drill unit.
-
-Make these notes into an obsidian vault, but preserve this location, so they can be edited both on the fly with notepad++ and more in-depth with obsidian.
