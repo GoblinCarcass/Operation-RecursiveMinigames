@@ -19,10 +19,11 @@ var _input_dir: Vector2 = Vector2.ZERO
 var can_move: bool = true
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	SignalBus.player_movement_mode_set.connect(_on_movement_mode_set)
 	if mouse_sensitivity == 0:
 		mouse_sensitivity = DEFAULT_MOUSE_SENSITIVITY
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -38,8 +39,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Signals! =========================================================================================
 
-func _on_movement_mode_set(move_mode: bool):
-	can_move = move_mode
+func _on_movement_mode_set(mode: bool):
+	can_move = mode
 
 # End of Signals! ==================================================================================
 
