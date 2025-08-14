@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cljxgr1cy3bu4"]
+
+[ext_resource type="Texture2D" uid="uid://icrcfyx84rm5" path="res://assets/crosshairs/crosshairs_done_in_more_than_two_minutes/white/BasicCursorsWhite_0004.png" id="1_bbooh"]
+
+[node name="Crosshair" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_bbooh")
+stretch_mode = 3
+
+[node name="CrosshairText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Press E to interact"
