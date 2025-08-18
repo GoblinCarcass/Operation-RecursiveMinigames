@@ -16,7 +16,7 @@ const JUMP_VELOCITY = 4.5
 # 2D WSAD Input
 var _input_dir: Vector2 = Vector2.ZERO
 var _direction: Vector3 = Vector3.ZERO
-var _can_acknowledge_dialog: bool = true
+
 # Collider of the InteractionRaycast
 var _i_object: Node3D = null
 
@@ -38,16 +38,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("dialogue_continue"):
 		# TODO: It doesn't recognize left click as continue imput even though it is on the list
 		if MadTalkGlobals.is_during_dialog:
-			# Don't have to remove/disconnect it manually. The engine manages that.
-			var dialog_timer: Timer = Timer.new()
-			dialog_timer.timeout.connect(_on_dialog_timer_timeout)
-			dialog_timer.wait_time = 0.2
-			dialog_timer.one_shot = true
-			dialog_timer.autostart = true
-			add_child(dialog_timer)
-			
 			SignalBus.dialogue_acknowledged.emit()
-			_can_acknowledge_dialog = false
+
 
 
 func _physics_process(delta: float) -> void:
@@ -64,10 +56,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_movement_mode_set(mode: bool):
 	can_move = mode
-
-
-func _on_dialog_timer_timeout():
-	_can_acknowledge_dialog = true
 
 
 # End of Signals! ==================================================================================

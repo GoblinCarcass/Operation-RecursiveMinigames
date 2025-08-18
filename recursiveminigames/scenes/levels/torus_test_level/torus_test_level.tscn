@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://dltmtdkqo6yid"]
+
+[ext_resource type="PackedScene" uid="uid://ceo7bsiuu6vs" path="res://scenes/entities/player/player.tscn" id="1_06k0c"]
+[ext_resource type="PackedScene" uid="uid://b1hs4i2co5s46" path="res://scenes/entities/npc/torus/torus_npc.tscn" id="2_v53oc"]
+[ext_resource type="PackedScene" uid="uid://big5ctwcxjhbq" path="res://assets/damLevel/dam_test.tscn" id="3_tq8hf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vom5j"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_hyk8p"]
+sky_material = SubResource("ProceduralSkyMaterial_vom5j")
+
+[sub_resource type="Environment" id="Environment_iuonh"]
+background_mode = 2
+sky = SubResource("Sky_hyk8p")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyk8p"]
+albedo_color = Color(0.737603, 0.400579, 0.116557, 1)
+
+[sub_resource type="GDScript" id="GDScript_k2fmo"]
+script/source = "extends Node3D
+
+
+func _physics_process(delta: float) -> void:
+	self.rotate_x(1 * delta)
+	self.rotate_z(0.5 * delta)
+	self.rotate_y(2.5 * delta)
+	
+"
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.941094, 0.338063, -0.00749999, 0.205108, 0.588328, 0.782177, 0.268837, 0.734563, -0.623011, 0, 21.3782, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_iuonh")
+
+[node name="Player" parent="." instance=ExtResource("1_06k0c")]
+transform = Transform3D(0.961362, 0, 0.275285, 0, 1, 0, -0.275285, 0, 0.961362, -83.0465, 108.588, 53.0145)
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Greybox" type="CSGCombiner3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.1895, 106.548, 133.389)
+use_collision = true
+
+[node name="THE FLOOR" type="CSGBox3D" parent="Visuals/Greybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180.004, -0.141701, -81.5517)
+size = Vector3(23.7384, 0.001, 26.3247)
+
+[node name="THE CUBE" type="CSGBox3D" parent="Visuals/Greybox"]
+transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -180.067, 0.334793, -71.1453)
+
+[node name="THE CUBE2" type="CSGBox3D" parent="Visuals/Greybox"]
+transform = Transform3D(-1.77886, 0, 0.00464262, 0, 2.44187, 0, -0.00825866, 0, -0.999989, -188.692, 0.334793, -81.7684)
+
+[node name="THE CUBE3" type="CSGBox3D" parent="Visuals/Greybox"]
+transform = Transform3D(-1.77886, 0, 0.00464262, 0, 2.44187, 0, -0.00825866, 0, -0.999989, -172.284, 0.399994, -84.1121)
+size = Vector3(0.337891, 1.05341, 12.2329)
+
+[node name="GloriousTorusOfWisdom" type="CSGTorus3D" parent="Visuals/Greybox"]
+transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -180.018, 1.95689, -83.7889)
+material = SubResource("StandardMaterial3D_hyk8p")
+script = SubResource("GDScript_k2fmo")
+
+[node name="TorusNpc" parent="Visuals/Greybox" instance=ExtResource("2_v53oc")]
+transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -185.349, 1.71332, -85.0099)
+collision_layer = 3
+
+[node name="damTest" parent="Visuals" instance=ExtResource("3_tq8hf")]
