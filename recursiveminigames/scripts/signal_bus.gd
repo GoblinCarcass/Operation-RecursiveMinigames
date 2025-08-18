@@ -4,6 +4,9 @@ extends Node
 signal dialogue_started(id: String)
 signal dialogue_acknowledged
 
-# TODO: Figure out if it can be done in a better way
+# TODO: Figure out if I can set the movement mode outside of the SignalBus
 # Player
 signal player_movement_mode_set(can_move: bool)
+
+# UI
+signal crosshair_text_changed(text: String)

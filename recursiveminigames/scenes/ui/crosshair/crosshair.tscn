@@ -32,4 +32,5 @@ texture = ExtResource("1_bbooh")
 stretch_mode = 3
 
 [node name="CrosshairText" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2

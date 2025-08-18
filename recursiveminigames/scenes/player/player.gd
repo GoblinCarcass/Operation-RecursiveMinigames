@@ -13,9 +13,12 @@ const WALK_SPEED := 5.0
 const RUN_SPEED := 10.0
 const JUMP_VELOCITY = 4.5
 
+# 2D WSAD Input
 var _input_dir: Vector2 = Vector2.ZERO
 var _direction: Vector3 = Vector3.ZERO
 var _can_acknowledge_dialog: bool = true
+# Collider of the InteractionRaycast
+var _i_object: Node3D = null
 
 var can_move: bool = true
 
@@ -35,17 +38,29 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("dialogue_continue"):
 		# TODO: It doesn't recognize left click as continue imput even though it is on the list
 		if MadTalkGlobals.is_during_dialog:
+			# Don't have to remove/disconnect it manually. The engine manages that.
 			var dialog_timer: Timer = Timer.new()
 			dialog_timer.timeout.connect(_on_dialog_timer_timeout)
-			add_child(dialog_timer)
 			dialog_timer.wait_time = 0.2
 			dialog_timer.one_shot = true
+			dialog_timer.autostart = true
+			add_child(dialog_timer)
 			
 			SignalBus.dialogue_acknowledged.emit()
 			_can_acknowledge_dialog = false
 
 
+func _physics_process(delta: float) -> void:
+	_i_object = i_ray.get_collider()
+	if _i_object:
+		if !_i_object.is_in_group("interactable"):
+			return
+		SignalBus.crosshair_text_changed.emit(_i_object.get_cursor_text())
+	else:
+		SignalBus.crosshair_text_changed.emit(" ")
+
 # Signals! =========================================================================================
+
 
 func _on_movement_mode_set(mode: bool):
 	can_move = mode
@@ -53,6 +68,8 @@ func _on_movement_mode_set(mode: bool):
 
 func _on_dialog_timer_timeout():
 	_can_acknowledge_dialog = true
+
+
 # End of Signals! ==================================================================================
 
 
@@ -103,11 +120,11 @@ func _on_jumping_state_entered() -> void:
 
 
 func handle_interaction() -> void:
-	var i_object: Node3D = i_ray.get_collider()
-	if !i_object:
+	_i_object = i_ray.get_collider()
+	if !_i_object:
 		return
-	if i_object.is_in_group("interactable"):
-		i_object.interact()
+	if _i_object.is_in_group("interactable"):
+		_i_object.interact()
 
 
 func handle_camera_rotation(event: InputEvent) -> void:
