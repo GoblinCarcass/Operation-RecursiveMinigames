@@ -13,10 +13,9 @@ const WALK_SPEED := 5.0
 const RUN_SPEED := 10.0
 const JUMP_VELOCITY = 4.5
 
-## The direction of the WSAD input
 var _input_dir: Vector2 = Vector2.ZERO
-## The actual direction the player is moving to (includes jumping)
 var _direction: Vector3 = Vector3.ZERO
+var _can_acknowledge_dialog: bool = true
 
 var can_move: bool = true
 
@@ -36,7 +35,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("dialogue_continue"):
 		# TODO: It doesn't recognize left click as continue imput even though it is on the list
 		if MadTalkGlobals.is_during_dialog:
+			var dialog_timer: Timer = Timer.new()
+			dialog_timer.timeout.connect(_on_dialog_timer_timeout)
+			add_child(dialog_timer)
+			dialog_timer.wait_time = 0.2
+			dialog_timer.one_shot = true
+			
 			SignalBus.dialogue_acknowledged.emit()
+			_can_acknowledge_dialog = false
 
 
 # Signals! =========================================================================================
@@ -44,6 +50,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_movement_mode_set(mode: bool):
 	can_move = mode
 
+
+func _on_dialog_timer_timeout():
+	_can_acknowledge_dialog = true
 # End of Signals! ==================================================================================
 
 

@@ -53,6 +53,11 @@ func _physics_process(delta: float) -> void:
 [node name="GameController" type="Node"]
 script = ExtResource("1_hujxm")
 
+[node name="InteractionCD" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
+
 [node name="MadTalkController" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_6q06x")
@@ -113,7 +118,8 @@ collision_layer = 3
 unique_name_in_owner = true
 mouse_filter = 0
 
-[node name="Crosshair" parent="UI_Main" instance=ExtResource("8_yyfjg")]
+[node name="PlayerCrosshair" parent="UI_Main" instance=ExtResource("8_yyfjg")]
+unique_name_in_owner = true
 mouse_filter = 2
 
 [connection signal="dialog_finished" from="MadTalkController" to="." method="_on_dialog_finished"]
