@@ -28,9 +28,11 @@ func _on_dialog_started(id: String):
 func _on_dialog_acknowledged():
 	madtalk.dialog_acknowledge()
 
+
+func _on_dialog_timer_timeout():
+	_can_start_dialog = true
  
-func _on_mad_talk_controller_dialog_started(sheet_name: Variant, sequence_id: Variant) -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 
  
 func _on_dialog_finished(sheet_name: Variant, sequence_id: Variant) -> void:
@@ -45,15 +47,13 @@ func _on_dialog_finished(sheet_name: Variant, sequence_id: Variant) -> void:
 	dialog_timer.autostart = true
 	dialog_timer.one_shot = true
 	add_child(dialog_timer)
-	
 
 
-func _on_dialog_timer_timeout():
-	_can_start_dialog = true
+func _on_mad_talk_controller_dialog_started(sheet_name: Variant, sequence_id: Variant) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _on_crosshair_text_changed(text: String):
 	var crosshair_text: Label = crosshair.get_node_or_null("%CrosshairText")
 	if crosshair_text:
 		crosshair_text.text = text
-	
