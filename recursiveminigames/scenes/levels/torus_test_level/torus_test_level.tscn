@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dltmtdkqo6yid"]
+[gd_scene load_steps=13 format=3 uid="uid://dltmtdkqo6yid"]
 
 [ext_resource type="PackedScene" uid="uid://ceo7bsiuu6vs" path="res://scenes/entities/player/player.tscn" id="1_06k0c"]
 [ext_resource type="PackedScene" uid="uid://b1hs4i2co5s46" path="res://scenes/entities/npc/torus/torus_npc.tscn" id="2_v53oc"]
@@ -16,6 +16,18 @@ background_mode = 2
 sky = SubResource("Sky_hyk8p")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06k0c"]
+albedo_color = Color(0.757803, 0.60244, 0.934474, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v53oc"]
+albedo_color = Color(0.730814, 0.216415, 0.216415, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tq8hf"]
+albedo_color = Color(0.205002, 0.30495, 0.798701, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iajpi"]
+albedo_color = Color(0.112331, 0.812278, 0.466798, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyk8p"]
 albedo_color = Color(0.737603, 0.400579, 0.116557, 1)
@@ -52,16 +64,20 @@ use_collision = true
 [node name="THE FLOOR" type="CSGBox3D" parent="Visuals/Greybox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180.004, -0.141701, -81.5517)
 size = Vector3(23.7384, 0.001, 26.3247)
+material = SubResource("StandardMaterial3D_06k0c")
 
 [node name="THE CUBE" type="CSGBox3D" parent="Visuals/Greybox"]
 transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -180.067, 0.334793, -71.1453)
+material = SubResource("StandardMaterial3D_v53oc")
 
 [node name="THE CUBE2" type="CSGBox3D" parent="Visuals/Greybox"]
 transform = Transform3D(-1.77886, 0, 0.00464262, 0, 2.44187, 0, -0.00825866, 0, -0.999989, -188.692, 0.334793, -81.7684)
+material = SubResource("StandardMaterial3D_tq8hf")
 
 [node name="THE CUBE3" type="CSGBox3D" parent="Visuals/Greybox"]
 transform = Transform3D(-1.77886, 0, 0.00464262, 0, 2.44187, 0, -0.00825866, 0, -0.999989, -172.284, 0.399994, -84.1121)
 size = Vector3(0.337891, 1.05341, 12.2329)
+material = SubResource("StandardMaterial3D_iajpi")
 
 [node name="GloriousTorusOfWisdom" type="CSGTorus3D" parent="Visuals/Greybox"]
 transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -180.018, 1.95689, -83.7889)
