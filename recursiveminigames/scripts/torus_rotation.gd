@@ -1,4 +1,4 @@
-extends MeshInstance3D
+extends VisualInstance3D
 @export_range(0, 1, 0.05) var rot_x: float
 @export_range(0, 1, 0.05) var rot_y: float
 @export_range(0, 1, 0.05) var rot_z: float

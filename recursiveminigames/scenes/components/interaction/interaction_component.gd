@@ -1,5 +1,6 @@
 class_name InteractionComponent extends Area3D
 
+## Emitted when the player starts an interaction with the connected entity.
 signal interaction_started
 
 @export_multiline var cursor_text: String = ""

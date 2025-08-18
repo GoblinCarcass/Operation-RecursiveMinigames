@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dltmtdkqo6yid"]
+[gd_scene load_steps=14 format=3 uid="uid://dltmtdkqo6yid"]
 
 [ext_resource type="PackedScene" uid="uid://ceo7bsiuu6vs" path="res://scenes/entities/player/player.tscn" id="1_06k0c"]
 [ext_resource type="PackedScene" uid="uid://b1hs4i2co5s46" path="res://scenes/entities/npc/torus/torus_npc.tscn" id="2_v53oc"]
 [ext_resource type="PackedScene" uid="uid://big5ctwcxjhbq" path="res://assets/damLevel/dam_test.tscn" id="3_tq8hf"]
+[ext_resource type="PackedScene" uid="uid://08fanief73el" path="res://scenes/entities/npc/fast_travel_torus/interdimensional_torus_of_fast_travel.tscn" id="3_v53oc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vom5j"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -87,5 +88,8 @@ script = SubResource("GDScript_k2fmo")
 [node name="TorusNpc" parent="Visuals/Greybox" instance=ExtResource("2_v53oc")]
 transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -185.349, 1.71332, -85.0099)
 collision_layer = 3
+
+[node name="InterdimensionalTorusOfFastTravel" parent="Visuals/Greybox" instance=ExtResource("3_v53oc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.141, 1.3588, -73.4143)
 
 [node name="damTest" parent="Visuals" instance=ExtResource("3_tq8hf")]

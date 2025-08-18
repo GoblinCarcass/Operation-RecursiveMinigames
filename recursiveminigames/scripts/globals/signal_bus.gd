@@ -1,5 +1,8 @@
 extends Node
 
+# Game Manager
+signal game_changed(id :String)
+
 # Dialogue 
 signal dialogue_started(id: String)
 signal dialogue_acknowledged

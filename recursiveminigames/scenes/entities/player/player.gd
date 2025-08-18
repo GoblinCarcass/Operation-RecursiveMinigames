@@ -33,9 +33,9 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		handle_camera_rotation(event)
-	if event.is_action("interaction"):
+	if event.is_action_pressed("interaction"):
 		handle_interaction()
-	if event.is_action("dialogue_continue"):
+	if event.is_action_pressed("dialogue_continue"):
 		# TODO: It doesn't recognize left click as continue imput even though it is on the list
 		if MadTalkGlobals.is_during_dialog:
 			SignalBus.dialogue_acknowledged.emit()

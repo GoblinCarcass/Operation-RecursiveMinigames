@@ -15,7 +15,7 @@ sky = SubResource("Sky_2f13s")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="DamTestLevel" type="Node3D"]
+[node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dradd")

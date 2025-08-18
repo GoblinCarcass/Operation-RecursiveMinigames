@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://big5ctwcxjhbq"]
 
 [ext_resource type="PackedScene" uid="uid://qoou4psruspj" path="res://assets/damLevel/damTest.glb" id="1_7carv"]
-[ext_resource type="Script" uid="uid://s8if7qr8i4c4" path="res://assets/damLevel/abominable_torus_of_ignorance.gd" id="2_tqpkd"]
+[ext_resource type="Script" uid="uid://s8if7qr8i4c4" path="res://scripts/torus_rotation.gd" id="2_tqpkd"]
 
 [node name="damTest" instance=ExtResource("1_7carv")]
 

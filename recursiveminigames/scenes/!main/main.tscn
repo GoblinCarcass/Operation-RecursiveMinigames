@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dmbggi5tr63fp"]
 
 [ext_resource type="Script" uid="uid://c6av3xe4m2ujl" path="res://addons/madtalk/runtime/madtalk_runtime.gd" id="1_6q06x"]
-[ext_resource type="Script" uid="uid://dkiv0ny36fnks" path="res://scenes/main/main.gd" id="1_hujxm"]
+[ext_resource type="Script" uid="uid://dkiv0ny36fnks" path="res://scenes/!main/main.gd" id="1_hujxm"]
 [ext_resource type="Script" uid="uid://crm8hyh7nn5vb" path="res://addons/madtalk/runtime/CharacterData.gd" id="2_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://cyfleir2p7aqo" path="res://scenes/ui/dialog_manager/dialog_manager.tscn" id="4_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://dltmtdkqo6yid" path="res://scenes/levels/torus_test_level/torus_test_level.tscn" id="4_ow5a4"]
