@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ceo7bsiuu6vs"]
 
 [ext_resource type="PackedScene" uid="uid://x8w82oc2yan0" path="res://assets/girl_test_GlTF/girl_tutorial_test_model.tscn" id="1_8afob"]
-[ext_resource type="Script" uid="uid://d1hs76ejvobyp" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://d1hs76ejvobyp" path="res://scenes/entities/player/player.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_p47bc"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_75vfm"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_0owmy"]

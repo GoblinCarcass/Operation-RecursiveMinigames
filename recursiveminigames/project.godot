@@ -47,6 +47,18 @@ project/assembly_name="RecursiveMinigames"
 
 enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/madtalk/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "orange",
+"res://import/": "yellow",
+"res://resources/": "green",
+"res://saves/": "teal",
+"res://scenes/": "blue",
+"res://scripts/": "pink"
+}
+
 [global_group]
 
 interactable="A group for every single object that can be interacted with. Pretty cool, innit?"
