@@ -55,6 +55,8 @@ shape = SubResource("SphereShape3D_d2j6x")
 debug_color = Color(0.460394, 0, 0.7, 0.42)
 
 [node name="Model" type="CSGTorus3D" parent="."]
+sides = 12
+ring_sides = 8
 material = SubResource("StandardMaterial3D_60ruv")
 script = SubResource("GDScript_d2j6x")
 

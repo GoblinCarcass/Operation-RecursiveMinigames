@@ -10,3 +10,4 @@ signal player_movement_mode_set(can_move: bool)
 
 # UI
 signal crosshair_text_changed(text: String)
+signal crosshair_changed(crosshair: Texture2D)
