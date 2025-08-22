@@ -37,7 +37,11 @@ DialogSpeakerLabel = NodePath("../UI_Main/DialogManager/TestMessageBox/VBoxConta
 DialogButtonsMenu = NodePath("../UI_Main/DialogManager/TestMenuBox")
 DialogButtonsContainer = NodePath("../UI_Main/DialogManager/TestMenuBox/TestButtonContainer")
 
-[node name="TorusTest" parent="." instance=ExtResource("4_ow5a4")]
+[node name="3DWorld" type="Node3D" parent="."]
+
+[node name="TorusTest" parent="3DWorld" instance=ExtResource("4_ow5a4")]
+
+[node name="2DWorld" type="Node2D" parent="."]
 
 [node name="UI_Main" type="CanvasLayer" parent="."]
 
