@@ -1,21 +1,32 @@
 class_name GameController extends Node
 
-@onready var madtalk: Node = %MadTalkController
-@onready var dialog_manager: DialogManager = %DialogManager
-@onready var crosshair: Control = %PlayerCrosshair
 
+@export_group("Game World")
+@export var world_3d: Node3D
+@export var world_2d: Node2D
+@export var ui_main: CanvasLayer
+
+var current_3d_level:PackedScene
+var current_2d_level:PackedScene
+var current_gui_scene:PackedScene
+
+@export_group("Dialogue")
 @export var dialog_acknowledge_cd: float = 0.4
 @export var dialog_start_cd: float = 0.4 
 
+@onready var madtalk: Node = %MadTalkController
+@onready var dialog_manager: DialogManager = %DialogManager
 var _can_start_dialog: bool = true
 var _can_acknowledge_dialog: bool = true
 
 func _ready() -> void:
-	# Important! Those calls are from the game world, not MadTalk node itself.
+	SceneLoader.game_controller = self
+	SceneLoader.world_3d = world_3d
+	SceneLoader.world_2d = world_2d
+	SceneLoader.ui_main = ui_main
+	
 	SignalBus.dialogue_started.connect(_on_dialog_started)
 	SignalBus.dialogue_acknowledged.connect(_on_dialog_acknowledged)
-	SignalBus.crosshair_text_changed.connect(_on_crosshair_text_changed)
-
 
 func _on_dialog_started(id: String) -> void:
 	if !_can_start_dialog:
@@ -23,7 +34,7 @@ func _on_dialog_started(id: String) -> void:
 	_can_start_dialog = false
 	
 	dialog_manager.visible = true
-	crosshair.visible = false
+	SignalBus.crosshair_visibility_changed.emit(false)
 	
 	madtalk.start_dialog(id)
 	SignalBus.player_movement_mode_set.emit(false)
@@ -49,7 +60,7 @@ func _on_dialog_acknowledge_cd_timeout() -> void:
 func _on_dialog_finished(sheet_name: Variant, sequence_id: Variant) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	dialog_manager.visible = false
-	crosshair.visible = true
+	SignalBus.crosshair_visibility_changed.emit(true)
 	SignalBus.player_movement_mode_set.emit(true)
 	
 	var dialog_timer: Timer = Timer.new()
@@ -66,9 +77,3 @@ func _on_dialog_started_cd_timeout() -> void:
 
 func _on_mad_talk_controller_dialog_started(sheet_name: Variant, sequence_id: Variant) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-
-func _on_crosshair_text_changed(text: String):
-	var crosshair_text: Label = crosshair.get_node_or_null("%CrosshairText")
-	if crosshair_text:
-		crosshair_text.text = text

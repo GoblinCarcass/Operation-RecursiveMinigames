@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c6av3xe4m2ujl" path="res://addons/madtalk/runtime/madtalk_runtime.gd" id="1_6q06x"]
 [ext_resource type="Script" uid="uid://dkiv0ny36fnks" path="res://scenes/!main/main.gd" id="1_hujxm"]
 [ext_resource type="Script" uid="uid://crm8hyh7nn5vb" path="res://addons/madtalk/runtime/CharacterData.gd" id="2_ow5a4"]
-[ext_resource type="PackedScene" uid="uid://cyfleir2p7aqo" path="res://scenes/ui/dialog_manager/dialog_manager.tscn" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://cyfleir2p7aqo" path="res://scenes/ui/dialog_box/dialog_box.tscn" id="4_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://dltmtdkqo6yid" path="res://scenes/levels/torus_test_level/torus_test_level.tscn" id="4_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://cljxgr1cy3bu4" path="res://scenes/ui/crosshair/crosshair.tscn" id="8_yyfjg"]
 
@@ -21,8 +21,11 @@ name = "Tiphany"
 variants = {}
 metadata/_custom_type_script = "uid://crm8hyh7nn5vb"
 
-[node name="GameController" type="Node"]
+[node name="GameController" type="Node" node_paths=PackedStringArray("world_3d", "world_2d", "ui_main")]
 script = ExtResource("1_hujxm")
+world_3d = NodePath("Worl3D")
+world_2d = NodePath("World2D")
+ui_main = NodePath("UI_Main")
 dialog_acknowledge_cd = 0.6
 dialog_start_cd = 0.6
 
@@ -37,11 +40,11 @@ DialogSpeakerLabel = NodePath("../UI_Main/DialogManager/TestMessageBox/VBoxConta
 DialogButtonsMenu = NodePath("../UI_Main/DialogManager/TestMenuBox")
 DialogButtonsContainer = NodePath("../UI_Main/DialogManager/TestMenuBox/TestButtonContainer")
 
-[node name="3DWorld" type="Node3D" parent="."]
+[node name="Worl3D" type="Node3D" parent="."]
 
-[node name="TorusTest" parent="3DWorld" instance=ExtResource("4_ow5a4")]
+[node name="TorusTest" parent="Worl3D" instance=ExtResource("4_ow5a4")]
 
-[node name="2DWorld" type="Node2D" parent="."]
+[node name="World2D" type="Node2D" parent="."]
 
 [node name="UI_Main" type="CanvasLayer" parent="."]
 

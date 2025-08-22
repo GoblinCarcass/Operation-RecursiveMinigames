@@ -1,7 +1,7 @@
 extends Node
 
 # Game Manager
-signal game_changed(id :String)
+
 
 # Dialogue 
 signal dialogue_started(id: String)
@@ -14,3 +14,4 @@ signal player_movement_mode_set(can_move: bool)
 # UI
 signal crosshair_text_changed(text: String)
 signal crosshair_changed(crosshair: Texture2D)
+signal crosshair_visibility_changed(is_visible: bool)
