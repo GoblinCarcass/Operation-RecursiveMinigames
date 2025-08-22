@@ -4,7 +4,7 @@
 # License: MIT
 # (But if you can be so kind as to mention the original in your Readme in case
 # you base any work on this, I would be very glad :] )
-
+class_name MadTalkRuntime
 extends Node
 
 

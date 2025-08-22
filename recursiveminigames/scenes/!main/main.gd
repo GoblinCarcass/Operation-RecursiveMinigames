@@ -6,16 +6,17 @@ class_name GameController extends Node
 @export var world_2d: Node2D
 @export var ui_main: CanvasLayer
 
-var current_3d_level:PackedScene
-var current_2d_level:PackedScene
-var current_gui_scene:PackedScene
+var current_3d_level: PackedScene
+var current_2d_level: PackedScene
+var current_gui_scene: PackedScene
 
 @export_group("Dialogue")
 @export var dialog_acknowledge_cd: float = 0.4
 @export var dialog_start_cd: float = 0.4 
 
-@onready var madtalk: Node = %MadTalkController
+@onready var madtalk: MadTalkRuntime = %MadTalkController
 @onready var dialog_manager: DialogManager = %DialogManager
+
 var _can_start_dialog: bool = true
 var _can_acknowledge_dialog: bool = true
 
@@ -33,7 +34,7 @@ func _on_dialog_started(id: String) -> void:
 		return
 	_can_start_dialog = false
 	
-	dialog_manager.visible = true
+	SignalBus.dialogue_box_visibility_set.emit(true)
 	SignalBus.crosshair_visibility_changed.emit(false)
 	
 	madtalk.start_dialog(id)
@@ -57,9 +58,10 @@ func _on_dialog_acknowledge_cd_timeout() -> void:
 	_can_acknowledge_dialog = true
 
 
-func _on_dialog_finished(sheet_name: Variant, sequence_id: Variant) -> void:
+func _on_dialog_finished(_sheet_name: Variant, _sequence_id: Variant) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	dialog_manager.visible = false
+	
+	SignalBus.dialogue_box_visibility_set.emit(false)
 	SignalBus.crosshair_visibility_changed.emit(true)
 	SignalBus.player_movement_mode_set.emit(true)
 	
@@ -75,5 +77,5 @@ func _on_dialog_started_cd_timeout() -> void:
 	_can_start_dialog = true
 
 
-func _on_mad_talk_controller_dialog_started(sheet_name: Variant, sequence_id: Variant) -> void:
+func _on_mad_talk_controller_dialog_started(_sheet_name: Variant, _sequence_id: Variant) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

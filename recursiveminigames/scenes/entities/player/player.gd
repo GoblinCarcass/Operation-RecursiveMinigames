@@ -42,7 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	_i_object = i_ray.get_collider()
 	if _i_object:
 		if !_i_object.is_in_group("interactable"):

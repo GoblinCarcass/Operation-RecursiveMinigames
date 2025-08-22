@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://djn7md0rtox2f"]
+
+[ext_resource type="PackedScene" uid="uid://cljxgr1cy3bu4" path="res://scenes/ui/crosshair/crosshair.tscn" id="1_grfvg"]
+[ext_resource type="Script" uid="uid://b2j3snsv6ntml" path="res://scripts/gui_node.gd" id="1_l7twa"]
+[ext_resource type="PackedScene" uid="uid://cyfleir2p7aqo" path="res://scenes/ui/dialog_box/dialog_box.tscn" id="2_l7twa"]
+
+[node name="3DWalkerGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_l7twa")
+
+[node name="DialogBox" parent="." instance=ExtResource("2_l7twa")]
+layout_mode = 1
+
+[node name="Crosshair" parent="." instance=ExtResource("1_grfvg")]
+layout_mode = 1
+mouse_filter = 2
