@@ -6,4 +6,4 @@ func _ready() -> void:
 
 
 func _on_interaction_started() -> void:
-	print("I am ready for a warp!")
+	print("I am ready for an amazing scene swap!")
