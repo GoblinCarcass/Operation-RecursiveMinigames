@@ -41,7 +41,7 @@ ListOfCharacters = Array[ExtResource("2_ow5a4")]([SubResource("Resource_hujxm"),
 
 [node name="UI_Main" type="CanvasLayer" parent="."]
 
-[node name="3DWalkerGUI" parent="UI_Main" instance=ExtResource("5_y888g")]
+[node name="WalkingSimGUI" parent="UI_Main" instance=ExtResource("5_y888g")]
 
 [connection signal="dialog_finished" from="MadTalkController" to="." method="_on_dialog_finished"]
 [connection signal="dialog_started" from="MadTalkController" to="." method="_on_mad_talk_controller_dialog_started"]

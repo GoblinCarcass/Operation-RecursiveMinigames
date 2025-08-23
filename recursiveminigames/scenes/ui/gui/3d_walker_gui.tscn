@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b2j3snsv6ntml" path="res://scripts/gui_node.gd" id="1_l7twa"]
 [ext_resource type="PackedScene" uid="uid://cyfleir2p7aqo" path="res://scenes/ui/dialog_box/dialog_box.tscn" id="2_l7twa"]
 
-[node name="3DWalkerGUI" type="Control"]
+[node name="WalkingSimGUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
