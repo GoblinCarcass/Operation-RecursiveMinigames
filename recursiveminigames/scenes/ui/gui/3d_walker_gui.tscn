@@ -34,6 +34,12 @@ script = ExtResource("1_l7twa")
 unique_name_in_owner = true
 script = ExtResource("2_u7rs6")
 ListOfCharacters = Array[ExtResource("3_ns356")]([SubResource("Resource_hujxm"), SubResource("Resource_yyfjg")])
+DialogMainControl = NodePath("../DialogManager")
+DialogMessageBox = NodePath("../DialogManager/TestMessageBox")
+DialogMessageLabel = NodePath("../DialogManager/TestMessageBox/VBoxContainer/TestMessageLabel")
+DialogSpeakerLabel = NodePath("../DialogManager/TestMessageBox/VBoxContainer/DialogSpeakerName")
+DialogButtonsMenu = NodePath("../DialogManager/TestMenuBox")
+DialogButtonsContainer = NodePath("../DialogManager/TestMenuBox/TestButtonContainer")
 
 [node name="DialogManager" parent="." instance=ExtResource("2_l7twa")]
 unique_name_in_owner = true
@@ -42,5 +48,7 @@ layout_mode = 1
 [node name="Crosshair" parent="." instance=ExtResource("1_grfvg")]
 layout_mode = 1
 mouse_filter = 2
+
+[connection signal="dialog_started" from="MadTalkController" to="." method="_on_madtak_dialog_started"]
 
 [editable path="DialogManager"]

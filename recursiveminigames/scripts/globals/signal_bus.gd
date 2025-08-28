@@ -4,10 +4,10 @@ extends Node
 
 
 # Dialogue 
-signal dialogue_started(id: String)
-signal dialogue_acknowledged
+signal dialog_started(id: String)
+signal dialog_acknowledged
 
-signal dialogue_box_visibility_set(is_visible: bool)
+signal dialog_box_visibility_set(is_visible: bool)
 
 # TODO: Figure out if I can set the movement mode outside of the SignalBus
 # Player

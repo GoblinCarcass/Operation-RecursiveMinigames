@@ -1,6 +1,6 @@
 extends Control
 
-@export_group("Dialogue")
+@export_group("Dialog")
 @export var dialog_acknowledge_cd: float = 0.4
 @export var dialog_start_cd: float = 0.4 
 
@@ -11,9 +11,8 @@ var _can_start_dialog: bool = true
 var _can_acknowledge_dialog: bool = true
 
 func _ready() -> void:
-	SignalBus.dialogue_started.connect(_on_dialog_started)
-	SignalBus.dialogue_acknowledged.connect(_on_dialog_acknowledged)
-	madtalk.dialog_started.connect(_on_madtak_dialog_started)
+	SignalBus.dialog_started.connect(_on_dialog_started)
+	SignalBus.dialog_acknowledged.connect(_on_dialog_acknowledged)
 
 
 func _on_dialog_started(id: String) -> void:
@@ -21,7 +20,7 @@ func _on_dialog_started(id: String) -> void:
 		return
 	
 	_can_start_dialog = false
-	SignalBus.dialogue_box_visibility_set.emit(true)
+	SignalBus.dialog_box_visibility_set.emit(true)
 	SignalBus.crosshair_visibility_changed.emit(false)
 	SignalBus.player_movement_mode_set.emit(false)
 	madtalk.start_dialog(id)
@@ -47,7 +46,7 @@ func _on_dialog_acknowledge_cd_timeout() -> void:
 func _on_dialog_finished(_sheet_name: Variant, _sequence_id: Variant):
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	SignalBus.dialogue_box_visibility_set.emit(false)
+	SignalBus.dialog_box_visibility_set.emit(false)
 	SignalBus.crosshair_visibility_changed.emit(true)
 	SignalBus.player_movement_mode_set.emit(true)
 	
