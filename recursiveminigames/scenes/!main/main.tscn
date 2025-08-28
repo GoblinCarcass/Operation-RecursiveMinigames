@@ -19,4 +19,3 @@ ui_main = NodePath("UI_Main")
 [node name="UI_Main" type="CanvasLayer" parent="."]
 
 [node name="WalkingSimGUI" parent="UI_Main" instance=ExtResource("5_y888g")]
-script = null

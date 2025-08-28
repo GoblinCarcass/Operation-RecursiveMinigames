@@ -20,11 +20,14 @@ var _direction: Vector3 = Vector3.ZERO
 # Collider of the InteractionRaycast
 var _i_object: Node3D = null
 
-var can_move: bool = true
+var _can_move: bool = true
+var _can_rotate_camera: bool = true
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	SignalBus.player_movement_mode_set.connect(_on_movement_mode_set)
+	SignalBus.player_can_rotate_camera_mode_set.connect(_on_camera_rotation_mode_set)
+	
 	if mouse_sensitivity == 0:
 		mouse_sensitivity = DEFAULT_MOUSE_SENSITIVITY
 
@@ -35,10 +38,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		handle_camera_rotation(event)
 	if event.is_action_pressed("interaction"):
 		handle_interaction()
-	if event.is_action_pressed("dialogue_continue"):
+	if event.is_action_pressed("dialog_continue"):
 		# TODO: It doesn't recognize left click as continue imput even though it is on the list
 		if MadTalkGlobals.is_during_dialog:
-			SignalBus.dialogue_acknowledged.emit()
+			SignalBus.dialog_acknowledged.emit()
 
 
 
@@ -55,7 +58,11 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_movement_mode_set(mode: bool):
-	can_move = mode
+	_can_move = mode
+
+
+func _on_camera_rotation_mode_set(mode: bool):
+	_can_rotate_camera = mode
 
 
 # End of Signal Calls! ==================================================================================
@@ -116,6 +123,9 @@ func handle_interaction() -> void:
 
 
 func handle_camera_rotation(event: InputEvent) -> void:
+	if !_can_rotate_camera:
+		return
+	
 	self.rotate_y(-event.relative.x * mouse_sensitivity / 500)
 	self.camera_rotator.rotate_x(-event.relative.y * mouse_sensitivity / 500)
 	
@@ -129,14 +139,14 @@ func handle_gravity(delta: float) -> void:
 
 
 func handle_jump() -> void:
-	if !can_move:
+	if !_can_move:
 		return
 	velocity.y = JUMP_VELOCITY
 
 
 
 func handle_movement(speed: float) -> void:
-	if !can_move:
+	if !_can_move:
 		return
 		
 	_input_dir = Input.get_vector("left", "right", "up", "down")
