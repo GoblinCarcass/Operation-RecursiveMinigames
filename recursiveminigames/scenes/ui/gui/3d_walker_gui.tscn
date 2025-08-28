@@ -49,4 +49,8 @@ layout_mode = 1
 layout_mode = 1
 mouse_filter = 2
 
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="tree_exited" from="DialogManager" to="DialogManager" method="_on_tree_exited"]
+[connection signal="tree_exited" from="Crosshair" to="Crosshair" method="_on_tree_exited"]
+
 [editable path="DialogManager"]

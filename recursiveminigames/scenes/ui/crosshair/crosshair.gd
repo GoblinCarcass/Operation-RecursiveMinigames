@@ -22,3 +22,12 @@ func _on_crosshair_text_changed(text: String):
 
 func _on_crosshair_visible_changed(mode: bool):
 	self.visible = mode
+
+
+func _on_tree_exited() -> void:
+	if SignalBus.crosshair_changed.is_connected(_on_crosshair_changed):
+		SignalBus.crosshair_changed.disconnect(_on_crosshair_changed)
+	if SignalBus.crosshair_text_changed.is_connected(_on_crosshair_text_changed):
+		SignalBus.crosshair_text_changed.disconnect(_on_crosshair_text_changed)
+	if SignalBus.crosshair_visibility_changed.is_connected(_on_crosshair_visible_changed):
+		SignalBus.crosshair_visibility_changed.disconnect(_on_crosshair_visible_changed)

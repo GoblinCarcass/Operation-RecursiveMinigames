@@ -65,6 +65,11 @@ func _on_camera_rotation_mode_set(mode: bool):
 	_can_rotate_camera = mode
 
 
+func _on_tree_exited():
+	if SignalBus.player_movement_mode_set.is_connected(_on_movement_mode_set):
+		SignalBus.player_movement_mode_set.disconnect(_on_movement_mode_set)
+	if SignalBus.player_can_rotate_camera_mode_set.is_connected(_on_camera_rotation_mode_set):
+		SignalBus.player_can_rotate_camera_mode_set.disconnect(_on_camera_rotation_mode_set)
 # End of Signal Calls! ==================================================================================
 
 

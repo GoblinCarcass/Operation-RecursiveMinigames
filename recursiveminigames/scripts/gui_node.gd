@@ -17,6 +17,12 @@ func _ready() -> void:
 	madtalk.dialog_finished.connect(_on_madtalk_dialog_finished)
 
 
+func _on_tree_exited() -> void:
+	if SignalBus.dialog_started.is_connected(_on_dialog_started):
+		SignalBus.dialog_started.disconnect(_on_dialog_started)
+	if SignalBus.dialog_acknowledged.is_connected(_on_dialog_acknowledged):
+		SignalBus.dialog_acknowledged.disconnect(_on_dialog_acknowledged)
+
 
 func _on_dialog_started(id: String) -> void:
 	#print("The dialog signal works as intended!")
