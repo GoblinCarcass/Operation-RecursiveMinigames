@@ -4,18 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://dltmtdkqo6yid" path="res://scenes/levels/torus_test_level/torus_test_level.tscn" id="4_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://djn7md0rtox2f" path="res://scenes/ui/gui/3d_walker_gui.tscn" id="5_y888g"]
 
-[node name="GameController" type="Node" node_paths=PackedStringArray("world_3d", "world_2d", "ui_main")]
+[node name="GameController" type="Node"]
 script = ExtResource("1_hujxm")
-world_3d = NodePath("Worl3D")
-world_2d = NodePath("World2D")
-ui_main = NodePath("UI_Main")
+default_3d_level = ExtResource("4_ow5a4")
+default_gui_scene = ExtResource("5_y888g")
 
-[node name="Worl3D" type="Node3D" parent="."]
+[node name="World3D" type="Node3D" parent="."]
+unique_name_in_owner = true
 
-[node name="TorusTest" parent="Worl3D" instance=ExtResource("4_ow5a4")]
+[node name="TorusTest" parent="World3D" instance=ExtResource("4_ow5a4")]
 
 [node name="World2D" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="UI_Main" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
-[node name="WalkingSimGUI" parent="UI_Main" instance=ExtResource("5_y888g")]
+[node name="Walker3DGUI" parent="UI_Main" instance=ExtResource("5_y888g")]
