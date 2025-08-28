@@ -1,37 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmbggi5tr63fp"]
+[gd_scene load_steps=4 format=3 uid="uid://dmbggi5tr63fp"]
 
-[ext_resource type="Script" uid="uid://c6av3xe4m2ujl" path="res://addons/madtalk/runtime/madtalk_runtime.gd" id="1_6q06x"]
 [ext_resource type="Script" uid="uid://dkiv0ny36fnks" path="res://scenes/!main/main.gd" id="1_hujxm"]
-[ext_resource type="Script" uid="uid://crm8hyh7nn5vb" path="res://addons/madtalk/runtime/CharacterData.gd" id="2_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://dltmtdkqo6yid" path="res://scenes/levels/torus_test_level/torus_test_level.tscn" id="4_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://djn7md0rtox2f" path="res://scenes/ui/gui/3d_walker_gui.tscn" id="5_y888g"]
-
-[sub_resource type="Resource" id="Resource_hujxm"]
-script = ExtResource("2_ow5a4")
-id = "torus_of_wisdom"
-name = "Mystical Torus Of Wisdom"
-variants = {}
-metadata/_custom_type_script = "uid://crm8hyh7nn5vb"
-
-[sub_resource type="Resource" id="Resource_yyfjg"]
-script = ExtResource("2_ow5a4")
-id = "mc"
-name = "Tiphany"
-variants = {}
-metadata/_custom_type_script = "uid://crm8hyh7nn5vb"
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("world_3d", "world_2d", "ui_main")]
 script = ExtResource("1_hujxm")
 world_3d = NodePath("Worl3D")
 world_2d = NodePath("World2D")
 ui_main = NodePath("UI_Main")
-dialog_acknowledge_cd = 0.6
-dialog_start_cd = 0.6
-
-[node name="MadTalkController" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_6q06x")
-ListOfCharacters = Array[ExtResource("2_ow5a4")]([SubResource("Resource_hujxm"), SubResource("Resource_yyfjg")])
 
 [node name="Worl3D" type="Node3D" parent="."]
 
@@ -42,6 +19,4 @@ ListOfCharacters = Array[ExtResource("2_ow5a4")]([SubResource("Resource_hujxm"),
 [node name="UI_Main" type="CanvasLayer" parent="."]
 
 [node name="WalkingSimGUI" parent="UI_Main" instance=ExtResource("5_y888g")]
-
-[connection signal="dialog_finished" from="MadTalkController" to="." method="_on_dialog_finished"]
-[connection signal="dialog_started" from="MadTalkController" to="." method="_on_mad_talk_controller_dialog_started"]
+script = null
