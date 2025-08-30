@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dltmtdkqo6yid"]
+[gd_scene load_steps=12 format=3 uid="uid://dltmtdkqo6yid"]
 
 [ext_resource type="PackedScene" uid="uid://ceo7bsiuu6vs" path="res://scenes/entities/player/player.tscn" id="1_06k0c"]
 [ext_resource type="PackedScene" uid="uid://b1hs4i2co5s46" path="res://scenes/entities/npc/torus/torus_npc.tscn" id="2_v53oc"]
@@ -30,20 +30,6 @@ albedo_color = Color(0.205002, 0.30495, 0.798701, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iajpi"]
 albedo_color = Color(0.112331, 0.812278, 0.466798, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyk8p"]
-albedo_color = Color(0.737603, 0.400579, 0.116557, 1)
-
-[sub_resource type="GDScript" id="GDScript_k2fmo"]
-script/source = "extends Node3D
-
-
-func _physics_process(delta: float) -> void:
-	self.rotate_x(1 * delta)
-	self.rotate_z(0.5 * delta)
-	self.rotate_y(2.5 * delta)
-	
-"
-
 [node name="Main" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -54,10 +40,10 @@ shadow_enabled = true
 environment = SubResource("Environment_iuonh")
 
 [node name="Player" parent="." instance=ExtResource("1_06k0c")]
-transform = Transform3D(0.961362, 0, 0.275285, 0, 1, 0, -0.275285, 0, 0.961362, -83.0465, 108.588, 53.0145)
+transform = Transform3D(-0.631623, 0, -0.775275, 0, 1, 0, 0.775275, 0, -0.631623, -83.0465, 106.672, 53.0145)
 
 [node name="TorusNpc" parent="." instance=ExtResource("2_v53oc")]
-transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -88.1595, 108.261, 48.3791)
+transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -91.8368, 108.261, 42.5045)
 collision_layer = 3
 
 [node name="InterdimensionalTorusOfFastTravel" parent="." instance=ExtResource("3_v53oc")]
@@ -87,9 +73,9 @@ transform = Transform3D(-1.77886, 0, 0.00464262, 0, 2.44187, 0, -0.00825866, 0, 
 size = Vector3(0.337891, 1.05341, 12.2329)
 material = SubResource("StandardMaterial3D_iajpi")
 
-[node name="GloriousTorusOfWisdom" type="CSGTorus3D" parent="Visuals/Greybox"]
-transform = Transform3D(-0.999989, 0, 0.00464262, 0, 1, 0, -0.00464262, 0, -0.999989, -180.018, 1.95689, -83.7889)
-material = SubResource("StandardMaterial3D_hyk8p")
-script = SubResource("GDScript_k2fmo")
-
 [node name="damTest" parent="Visuals" instance=ExtResource("3_tq8hf")]
+
+[node name="TorusAlert" type="Label3D" parent="Visuals"]
+transform = Transform3D(0.0542705, 0, -0.998526, 0, 1, 0, 0.998526, 0, 0.0542705, -75.7057, 107.76, 54.57)
+text = "Hey, what in the hip hop hell is this?! -------->"
+font_size = 64
