@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cljxgr1cy3bu4"]
+[gd_scene load_steps=3 format=3 uid="uid://cljxgr1cy3bu4"]
 
+[ext_resource type="Script" uid="uid://dlcog2pncehhy" path="res://scenes/ui/crosshair/crosshair.gd" id="1_577bj"]
 [ext_resource type="Texture2D" uid="uid://icrcfyx84rm5" path="res://assets/crosshairs/crosshairs_done_in_more_than_two_minutes/white/BasicCursorsWhite_0004.png" id="1_bbooh"]
 
 [node name="Crosshair" type="Control"]
@@ -11,6 +12,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_577bj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -26,7 +28,8 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Crosshair" type="TextureRect" parent="VBoxContainer"]
+[node name="CrosshairImage" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_bbooh")
 stretch_mode = 3

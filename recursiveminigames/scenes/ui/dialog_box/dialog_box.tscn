@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyfleir2p7aqo"]
+
+[ext_resource type="Script" uid="uid://cdpbs1vdqaua1" path="res://scripts/dialog_manager.gd" id="1_gwmmj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxu72"]
+
+[node name="DialogBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_gwmmj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -404.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TestMenuBox" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rxu72")
+
+[node name="TestButtonContainer" type="HBoxContainer" parent="VBoxContainer/TestMenuBox"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TestMessageBox" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TestMessageBox"]
+layout_mode = 2
+
+[node name="DialogSpeakerName" type="Label" parent="VBoxContainer/TestMessageBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 72
+
+[node name="TestMessageLabel" type="RichTextLabel" parent="VBoxContainer/TestMessageBox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36

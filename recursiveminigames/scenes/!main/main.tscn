@@ -1,56 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmbggi5tr63fp"]
+[gd_scene load_steps=4 format=3 uid="uid://dmbggi5tr63fp"]
 
-[ext_resource type="Script" uid="uid://c6av3xe4m2ujl" path="res://addons/madtalk/runtime/madtalk_runtime.gd" id="1_6q06x"]
 [ext_resource type="Script" uid="uid://dkiv0ny36fnks" path="res://scenes/!main/main.gd" id="1_hujxm"]
-[ext_resource type="Script" uid="uid://crm8hyh7nn5vb" path="res://addons/madtalk/runtime/CharacterData.gd" id="2_ow5a4"]
-[ext_resource type="PackedScene" uid="uid://cyfleir2p7aqo" path="res://scenes/ui/dialog_manager/dialog_manager.tscn" id="4_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://dltmtdkqo6yid" path="res://scenes/levels/torus_test_level/torus_test_level.tscn" id="4_ow5a4"]
-[ext_resource type="PackedScene" uid="uid://cljxgr1cy3bu4" path="res://scenes/ui/crosshair/crosshair.tscn" id="8_yyfjg"]
-
-[sub_resource type="Resource" id="Resource_hujxm"]
-script = ExtResource("2_ow5a4")
-id = "torus_of_wisdom"
-name = "Mystical Torus Of Wisdom"
-variants = {}
-metadata/_custom_type_script = "uid://crm8hyh7nn5vb"
-
-[sub_resource type="Resource" id="Resource_yyfjg"]
-script = ExtResource("2_ow5a4")
-id = "mc"
-name = "Tiphany"
-variants = {}
-metadata/_custom_type_script = "uid://crm8hyh7nn5vb"
+[ext_resource type="PackedScene" uid="uid://djn7md0rtox2f" path="res://scenes/ui/gui/3d_walker_gui.tscn" id="5_y888g"]
 
 [node name="GameController" type="Node"]
 script = ExtResource("1_hujxm")
-dialog_acknowledge_cd = 0.6
-dialog_start_cd = 0.6
+default_3d_level = ExtResource("4_ow5a4")
+default_gui_scene = ExtResource("5_y888g")
 
-[node name="MadTalkController" type="Node" parent="."]
+[node name="World3D" type="Node3D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("1_6q06x")
-ListOfCharacters = Array[ExtResource("2_ow5a4")]([SubResource("Resource_hujxm"), SubResource("Resource_yyfjg")])
-DialogMainControl = NodePath("../UI_Main/DialogManager")
-DialogMessageBox = NodePath("../UI_Main/DialogManager/TestMessageBox")
-DialogMessageLabel = NodePath("../UI_Main/DialogManager/TestMessageBox/VBoxContainer/TestMessageLabel")
-DialogSpeakerLabel = NodePath("../UI_Main/DialogManager/TestMessageBox/VBoxContainer/DialogSpeakerName")
-DialogButtonsMenu = NodePath("../UI_Main/DialogManager/TestMenuBox")
-DialogButtonsContainer = NodePath("../UI_Main/DialogManager/TestMenuBox/TestButtonContainer")
 
-[node name="TorusTest" parent="." instance=ExtResource("4_ow5a4")]
-
-[node name="UI_Main" type="CanvasLayer" parent="."]
-
-[node name="DialogManager" parent="UI_Main" instance=ExtResource("4_l3cfh")]
+[node name="World2D" type="Node2D" parent="."]
 unique_name_in_owner = true
-mouse_filter = 0
 
-[node name="PlayerCrosshair" parent="UI_Main" instance=ExtResource("8_yyfjg")]
+[node name="GUI_Main" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-mouse_filter = 2
-
-[connection signal="dialog_finished" from="MadTalkController" to="." method="_on_dialog_finished"]
-[connection signal="dialog_started" from="MadTalkController" to="." method="_on_mad_talk_controller_dialog_started"]
-
-[editable path="UI_Main/DialogManager"]
-[editable path="UI_Main/PlayerCrosshair"]

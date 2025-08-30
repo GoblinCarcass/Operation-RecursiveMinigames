@@ -1,74 +1,31 @@
+@tool
 class_name GameController extends Node
 
-@onready var madtalk: Node = %MadTalkController
-@onready var dialog_manager: DialogManager = %DialogManager
-@onready var crosshair: Control = %PlayerCrosshair
+@onready var world_3d: Node3D = %World3D
+@onready var world_2d: Node2D = %World2D
+@onready var gui: CanvasLayer = %GUI_Main
 
-@export var dialog_acknowledge_cd: float = 0.4
-@export var dialog_start_cd: float = 0.4 
-
-var _can_start_dialog: bool = true
-var _can_acknowledge_dialog: bool = true
+@export_group("Default Levels")
+@export var default_3d_level: PackedScene
+@export var default_2d_level: PackedScene
+@export var default_gui_scene: PackedScene
 
 func _ready() -> void:
-	# Important! Those calls are from the game world, not MadTalk node itself.
-	SignalBus.dialogue_started.connect(_on_dialog_started)
-	SignalBus.dialogue_acknowledged.connect(_on_dialog_acknowledged)
-	SignalBus.crosshair_text_changed.connect(_on_crosshair_text_changed)
-
-
-func _on_dialog_started(id: String) -> void:
-	if !_can_start_dialog:
-		return
-	_can_start_dialog = false
+	SceneLoader.game_controller = self
+	SceneLoader.world_3d = world_3d
+	SceneLoader.world_2d = world_2d
+	SceneLoader.gui = gui
 	
-	dialog_manager.visible = true
-	crosshair.visible = false
-	
-	madtalk.start_dialog(id)
-	SignalBus.player_movement_mode_set.emit(false)
+	if !Engine.is_editor_hint():
+		if default_3d_level != null:
+			SceneLoader.change_3d_level(default_3d_level.resource_path)
+		if default_2d_level != null:
+			SceneLoader.change_2d_level(default_2d_level.resource_path)
+		if default_gui_scene != null:
+			SceneLoader.change_gui_scene(default_gui_scene.resource_path)
 
 
-func _on_dialog_acknowledged() -> void:
-	if _can_acknowledge_dialog:
-		madtalk.dialog_acknowledge()
-	_can_acknowledge_dialog = false
-	
-	var dialog_timer: Timer = Timer.new()
-	dialog_timer.timeout.connect(_on_dialog_acknowledge_cd_timeout)
-	dialog_timer.wait_time = dialog_acknowledge_cd
-	dialog_timer.one_shot = true
-	dialog_timer.autostart = true
-	add_child(dialog_timer)
-
- 
-func _on_dialog_acknowledge_cd_timeout() -> void:
-	_can_acknowledge_dialog = true
-
-
-func _on_dialog_finished(sheet_name: Variant, sequence_id: Variant) -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	dialog_manager.visible = false
-	crosshair.visible = true
-	SignalBus.player_movement_mode_set.emit(true)
-	
-	var dialog_timer: Timer = Timer.new()
-	dialog_timer.timeout.connect(_on_dialog_started_cd_timeout)
-	dialog_timer.wait_time = dialog_start_cd
-	dialog_timer.autostart = true
-	dialog_timer.one_shot = true
-	add_child(dialog_timer)
-
-
-func _on_dialog_started_cd_timeout() -> void:
-	_can_start_dialog = true
-
-
-func _on_mad_talk_controller_dialog_started(sheet_name: Variant, sequence_id: Variant) -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-
-func _on_crosshair_text_changed(text: String):
-	var crosshair_text: Label = crosshair.get_node_or_null("%CrosshairText")
-	if crosshair_text:
-		crosshair_text.text = text
+func _process(delta: float) -> void:
+	#TODO: Update the editor view to match given default scenes
+	if Engine.is_editor_hint():
+		pass 
