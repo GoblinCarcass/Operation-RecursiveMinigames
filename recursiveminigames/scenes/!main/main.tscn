@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkiv0ny36fnks" path="res://scenes/!main/main.gd" id="1_hujxm"]
 [ext_resource type="PackedScene" uid="uid://dltmtdkqo6yid" path="res://scenes/levels/torus_test_level/torus_test_level.tscn" id="4_ow5a4"]
-[ext_resource type="PackedScene" uid="uid://djn7md0rtox2f" path="res://scenes/ui/gui/3d_walker_gui.tscn" id="5_y888g"]
+[ext_resource type="PackedScene" uid="uid://djn7md0rtox2f" path="res://scenes/ui/!gui/3d_walker_gui.tscn" id="5_y888g"]
 
 [node name="GameController" type="Node"]
 script = ExtResource("1_hujxm")
