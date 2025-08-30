@@ -30,7 +30,7 @@ sides = 16
 ring_sides = 3
 material = SubResource("StandardMaterial3D_wcls8")
 script = ExtResource("1_pqp5v")
-rot_x = 0.7
+rot_x = 1.0
 rot_z = 0.05
 
 [node name="InteractionComponent" type="Area3D" parent="." groups=["interactable"]]
