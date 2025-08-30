@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnmajhvikw30p"]
+[gd_scene load_steps=8 format=3 uid="uid://dnmajhvikw30p"]
 
 [ext_resource type="PackedScene" uid="uid://big5ctwcxjhbq" path="res://assets/damLevel/dam_test.tscn" id="1_ap0m8"]
+[ext_resource type="PackedScene" uid="uid://ceo7bsiuu6vs" path="res://scenes/entities/player/player.tscn" id="2_ap0m8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3bs2h"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -30,6 +31,9 @@ environment = SubResource("Environment_dradd")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
+[node name="Player" parent="." instance=ExtResource("2_ap0m8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.1874, -0.242153, 11.7163)
+
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="THE CUBES" type="CSGCombiner3D" parent="Visuals"]
@@ -50,7 +54,7 @@ size = Vector3(100, 100, 100)
 material = SubResource("StandardMaterial3D_ap0m8")
 
 [node name="Label3D" type="Label3D" parent="Visuals/THE CUBES/CSGBox3D3"]
-transform = Transform3D(0.662895, -0.69283, -0.283826, 0.69283, 0.711338, -0.118253, 0.283826, -0.118254, 0.951556, 256.141, 124.314, -181.896)
+transform = Transform3D(0.662895, -0.69283, -0.283826, 0.69283, 0.711338, -0.118253, 0.283826, -0.118254, 0.951556, 268.578, 114.159, -186.056)
 text = "YOU ARE ON LEVEL 2"
 font_size = 1024
 

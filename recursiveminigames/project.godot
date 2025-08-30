@@ -31,6 +31,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Paths="*res://scripts/globals/paths.gd"
 SignalBus="*res://scripts/globals/signal_bus.gd"
 SceneLoader="*res://scripts/globals/scene_loader.gd"
 MadTalkGlobals="*res://addons/madtalk/runtime/MadTalkGlobals.tscn"

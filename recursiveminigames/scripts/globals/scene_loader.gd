@@ -9,7 +9,6 @@ var current_3d_level: Node3D
 var current_2d_level: Node2D
 var current_gui_scene: Control
 
-
 func change_3d_level(scene_path: String, delete: bool = true, keep_running: bool = false) -> void:
 	if current_3d_level != null:
 		if delete:
