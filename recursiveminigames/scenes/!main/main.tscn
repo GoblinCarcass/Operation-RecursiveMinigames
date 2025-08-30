@@ -12,12 +12,8 @@ default_gui_scene = ExtResource("5_y888g")
 [node name="World3D" type="Node3D" parent="."]
 unique_name_in_owner = true
 
-[node name="TorusTest" parent="World3D" instance=ExtResource("4_ow5a4")]
-
 [node name="World2D" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="UI_Main" type="CanvasLayer" parent="."]
+[node name="GUI_Main" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-
-[node name="Walker3DGUI" parent="UI_Main" instance=ExtResource("5_y888g")]
