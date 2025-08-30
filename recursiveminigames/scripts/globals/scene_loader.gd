@@ -65,6 +65,6 @@ func load_scene(path: String):
 		current_gui_scene = new
 	else:
 		assert(false,
-		"You are trying to load a scene of incorrect type!\n
+		"You are trying to load a scene of incorrect type!
 		It should be either a Node2D, Node3D or Control!")
 	
