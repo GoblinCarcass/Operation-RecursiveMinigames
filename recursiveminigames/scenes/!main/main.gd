@@ -10,11 +10,11 @@ class_name GameController extends Node
 @export var default_2d_level: PackedScene
 @export var default_gui_scene: PackedScene
 @export_tool_button("Update View", "Callable") var update_view_callable: Callable = update_editor_view
-@export_tool_button("Reset View", "Callable") var reset_view_callable: Callable = reset_worlds
+@export_tool_button("Reset View", "Callable") var reset_view_callable: Callable = reset_world_children
 
 
 func _ready() -> void:
-	reset_worlds()
+	reset_world_children()
 	if !Engine.is_editor_hint():
 		# Globals instantiate
 		SceneLoader.world_3d = world_3d
@@ -35,7 +35,7 @@ func update_editor_view() -> void:
 		var tooltip_2d: Node2D
 		var tooltip_gui: Control
 		
-		reset_worlds()
+		reset_world_children()
 		if null != default_3d_level:
 			tooltip_3d = load(default_3d_level.resource_path).instantiate()
 			world_3d.add_child(tooltip_3d)
@@ -50,13 +50,13 @@ func update_editor_view() -> void:
 			tooltip_gui.owner = get_tree().edited_scene_root
 
 
-func reset_worlds() -> void:
-		murder_children(world_3d)
-		murder_children(world_2d)
-		murder_children(gui)
+func reset_world_children() -> void:
+		remove_children_nodes(world_3d)
+		remove_children_nodes(world_2d)
+		remove_children_nodes(gui)
 
 
-func murder_children(node: Node):
+func remove_children_nodes(node: Node):
 	var children = node.get_children()
 	if  children != []:
 		for i in children:
