@@ -14,13 +14,13 @@ class_name GameController extends Node
 
 
 func _ready() -> void:
+	reset_worlds()
 	if !Engine.is_editor_hint():
 		# Globals instantiate
 		SceneLoader.world_3d = world_3d
 		SceneLoader.world_2d = world_2d
 		SceneLoader.gui = gui
 		
-		reset_worlds()
 		if null != default_3d_level:
 			SceneLoader.change_3d_level(default_3d_level.resource_path)
 		if null != default_2d_level:
@@ -36,7 +36,6 @@ func update_editor_view() -> void:
 		var tooltip_gui: Control
 		
 		reset_worlds()
-		
 		if null != default_3d_level:
 			tooltip_3d = load(default_3d_level.resource_path).instantiate()
 			world_3d.add_child(tooltip_3d)
