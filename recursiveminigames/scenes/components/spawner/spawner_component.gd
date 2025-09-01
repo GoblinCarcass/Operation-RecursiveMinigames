@@ -72,10 +72,10 @@ func spawn_entity(entity: Node, spawn_name: String):
 
 
 ## Find a specific spawn point by it's name
-func _get_spawn_point(name: String, arr: Array) -> Node:
+func _get_spawn_point(node_name: String, arr: Array) -> Node:
 	var spawn_point: Node = null
 	for i in arr:
-		if i.name != name:
+		if i.name != node_name:
 			continue
 		spawn_point = i
 		break
