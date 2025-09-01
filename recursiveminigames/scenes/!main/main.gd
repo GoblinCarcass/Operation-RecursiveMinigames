@@ -59,7 +59,7 @@ func reset_world_children(out_of_queue: bool = false) -> void:
 		remove_children_nodes(gui, out_of_queue)
 
 
-func remove_children_nodes(node: Node, out_of_queue: bool = false):
+func remove_children_nodes(node: Node, out_of_queue: bool):
 	var children = node.get_children()
 	if  children != []:
 		for i in children:
