@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b64uwqgcc1o8i"]
+
+[ext_resource type="Script" uid="uid://dc2gyctln5m6w" path="res://scenes/components/player_spawner/player_spawner_component.gd" id="1_x3bu7"]
+[ext_resource type="PackedScene" uid="uid://ceo7bsiuu6vs" path="res://scenes/entities/player/player.tscn" id="2_hubib"]
+
+[node name="PlayerSpawnerComponent" type="Node"]
+script = ExtResource("1_x3bu7")
+player_character = ExtResource("2_hubib")
