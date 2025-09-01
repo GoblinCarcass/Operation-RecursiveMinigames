@@ -23,9 +23,6 @@ func change_3d_level(scene_path: String, delete: bool = true, keep_running: bool
 			gui.remove_child(current_3d_level)
 			removed_nodes.append(current_3d_level)
 	load_scene(scene_path)
-	#var new = load(scene_path).instantiate()
-	#world_3d.add_child(new)
-	#current_3d_level = new
 
 
 func change_2d_level(scene_path: String, delete: bool = true, keep_running: bool = false) -> void:
@@ -39,9 +36,6 @@ func change_2d_level(scene_path: String, delete: bool = true, keep_running: bool
 			world_2d.remove_child(current_2d_level)
 			removed_nodes.append(current_2d_level)
 	load_scene(scene_path)
-	#var new = load(scene_path).instantiate()
-	#world_2d.add_child(new)
-	#current_2d_level = new
 
 
 func change_gui_scene(scene_path: String, delete: bool = true, keep_running: bool = false) -> void:
@@ -55,9 +49,6 @@ func change_gui_scene(scene_path: String, delete: bool = true, keep_running: boo
 			gui.remove_child(current_gui_scene)
 			removed_nodes.append(current_gui_scene)
 	load_scene(scene_path)
-	#var new = load(scene_path).instantiate()
-	#gui.add_child(new)
-	#current_gui_scene = new
 
 
 func load_scene(path: String):
@@ -77,3 +68,6 @@ func load_scene(path: String):
 		"You are trying to load a scene of incorrect type!
 		It should have a root of either Node2D, Node3D or Control!")
 	
+	#var new = load(scene_path).instantiate()
+	#gui.add_child(new)
+	#current_gui_scene = new

@@ -14,9 +14,10 @@ class_name GameController extends Node
 
 
 func _ready() -> void:
-	# For some reason it executes AFTER the level change code. Why is it happening?
-	reset_world_children()
-	
+	# If I queue the world for deletion it doesn't do it on time and the world throws up a pointer to the level
+	# What are the consequences of deleting them out of queue? So far I see no consequences.
+	# It's on world startup anyway
+	reset_world_children(true)
 	if !Engine.is_editor_hint():
 		# Globals instantiate
 		SceneLoader.world_3d = world_3d
@@ -52,14 +53,17 @@ func update_editor_view() -> void:
 			tooltip_gui.owner = get_tree().edited_scene_root
 
 
-func reset_world_children() -> void:
-		remove_children_nodes(world_3d)
-		remove_children_nodes(world_2d)
-		remove_children_nodes(gui)
+func reset_world_children(out_of_queue: bool = false) -> void:
+		remove_children_nodes(world_3d, out_of_queue)
+		remove_children_nodes(world_2d, out_of_queue)
+		remove_children_nodes(gui, out_of_queue)
 
 
-func remove_children_nodes(node: Node):
+func remove_children_nodes(node: Node, out_of_queue: bool = false):
 	var children = node.get_children()
 	if  children != []:
 		for i in children:
-			i.queue_free()
+			if out_of_queue:
+				i.free()
+			else:
+				i.queue_free()
