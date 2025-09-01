@@ -49,9 +49,11 @@ func spawn_entity(entity: Node, spawn_name: String):
 				printerr("Spawnable entity has incorrent dimensions! It should inherit from Node3D!")
 				return
 			
-			spawn_point.add_child(entity)
 			# TODO: Append the entity to the correct parent
-			#entity.owner = self.owner
+			self.get_parent().add_child(entity)
+			entity.position.x = spawn_point.position.x
+			entity.position.y = spawn_point.position.y
+			entity.position.z = spawn_point.position.z
 			entity_spawned.emit(entity)
 			
 		1: # 2D
@@ -65,9 +67,10 @@ func spawn_entity(entity: Node, spawn_name: String):
 				printerr("Spawnable entity has incorrent dimensions! It should inherit from Node2D!")
 				return
 			
-			spawn_point.add_child(entity)
 			# TODO: Append the entity to the correct parent
-			#entity.owner = self.owner
+			self.get_parent().add_child(entity)
+			entity.position.x = spawn_point.position.x
+			entity.position.y = spawn_point.position.y
 			entity_spawned.emit(entity)
 
 
