@@ -9,12 +9,16 @@ var current_3d_level: Node3D
 var current_2d_level: Node2D
 var current_gui_scene: Control
 
+var hidden_nodes: Array[Node] = []
+
+
 func change_3d_level(scene_path: String, delete: bool = true, keep_running: bool = false) -> void:
-	if current_3d_level != null:
+	if null != current_3d_level:
 		if delete:
 			current_3d_level.queue_free()
 		elif keep_running:
 			current_3d_level.visible = false
+			hidden_nodes.append(current_3d_level)
 		else:
 			gui.remove_child(current_3d_level)
 	load_scene(scene_path)
@@ -24,11 +28,12 @@ func change_3d_level(scene_path: String, delete: bool = true, keep_running: bool
 
 
 func change_2d_level(scene_path: String, delete: bool = true, keep_running: bool = false) -> void:
-	if current_2d_level != null:
+	if null != current_2d_level:
 		if delete:
 			current_2d_level.queue_free()
 		elif keep_running:
 			current_2d_level.visible = false
+			hidden_nodes.append(current_2d_level)
 		else:
 			world_2d.remove_child(current_2d_level)
 	load_scene(scene_path)
@@ -38,11 +43,12 @@ func change_2d_level(scene_path: String, delete: bool = true, keep_running: bool
 
 
 func change_gui_scene(scene_path: String, delete: bool = true, keep_running: bool = false) -> void:
-	if current_gui_scene != null:
+	if null != current_gui_scene:
 		if delete:
 			current_gui_scene.queue_free()
 		elif keep_running:
 			current_gui_scene.visible = false
+			hidden_nodes.append(current_gui_scene)
 		else:
 			gui.remove_child(current_gui_scene)
 	load_scene(scene_path)
@@ -53,6 +59,7 @@ func change_gui_scene(scene_path: String, delete: bool = true, keep_running: boo
 
 func load_scene(path: String):
 	var new: Node = load(path).instantiate()
+	
 	if new is Node3D:
 		world_3d.add_child(new)
 		current_3d_level = new
@@ -65,5 +72,5 @@ func load_scene(path: String):
 	else:
 		assert(false,
 		"You are trying to load a scene of incorrect type!
-		It should be either a Node2D, Node3D or Control!")
+		It should have a root of either Node2D, Node3D or Control!")
 	

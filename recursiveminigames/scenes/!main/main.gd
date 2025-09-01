@@ -14,7 +14,9 @@ class_name GameController extends Node
 
 
 func _ready() -> void:
+	# For some reason it executes AFTER the level change code. Why is it happening?
 	reset_world_children()
+	
 	if !Engine.is_editor_hint():
 		# Globals instantiate
 		SceneLoader.world_3d = world_3d
