@@ -10,7 +10,7 @@ var current_2d_level: Node2D
 var current_gui_scene: Control
 
 var hidden_nodes: Array[Node] = []
-
+var removed_nodes: Array[Node] = []
 
 func change_3d_level(scene_path: String, delete: bool = true, keep_running: bool = false) -> void:
 	if null != current_3d_level:
@@ -21,6 +21,7 @@ func change_3d_level(scene_path: String, delete: bool = true, keep_running: bool
 			hidden_nodes.append(current_3d_level)
 		else:
 			gui.remove_child(current_3d_level)
+			removed_nodes.append(current_3d_level)
 	load_scene(scene_path)
 	#var new = load(scene_path).instantiate()
 	#world_3d.add_child(new)
@@ -36,6 +37,7 @@ func change_2d_level(scene_path: String, delete: bool = true, keep_running: bool
 			hidden_nodes.append(current_2d_level)
 		else:
 			world_2d.remove_child(current_2d_level)
+			removed_nodes.append(current_2d_level)
 	load_scene(scene_path)
 	#var new = load(scene_path).instantiate()
 	#world_2d.add_child(new)
@@ -51,6 +53,7 @@ func change_gui_scene(scene_path: String, delete: bool = true, keep_running: boo
 			hidden_nodes.append(current_gui_scene)
 		else:
 			gui.remove_child(current_gui_scene)
+			removed_nodes.append(current_gui_scene)
 	load_scene(scene_path)
 	#var new = load(scene_path).instantiate()
 	#gui.add_child(new)
