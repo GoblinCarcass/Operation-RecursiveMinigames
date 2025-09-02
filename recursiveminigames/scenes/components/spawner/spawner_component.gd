@@ -15,7 +15,9 @@ var _spawn_points_3d: Array[Node3D] = []
 
 
 func _ready() -> void:
-	# Initialize available spawners
+	# Initialize available spawners. Preferably they should be Marker2D and 3D nodes,
+	# but any node will do just fine. Remember to keep the model below (0, 0) coords though.
+	# You wouldn't want the player to spawn in the middle of a mesh now, would you?
 	
 	var children = self.get_children()
 	match dimensions:
@@ -36,7 +38,7 @@ func _ready() -> void:
 				_spawn_points_2d.append(child)
 
 
-## Find a specific spawn point by it's name
+## Find a specific spawn point by it's name. It should be slightly faster than the regular String.
 func _get_spawn_point(node_name: String, arr: Array) -> Node:
 	var spawn_point: Node = null
 	for i in arr:
@@ -59,7 +61,7 @@ func _setup_entity_in_scene_tree(entity: Node, spawn_point: Node):
 	entity_spawned.emit(entity)
 
 
-func spawn_entity(entity: Node, spawn_name: StringName):
+func spawn_entity(entity: Node, spawn_name: String):
 	# Step 1: Get the desired entity
 	# Step 2: Get the desired destination
 	# Step 3: Ship the entity to the destination
@@ -67,11 +69,9 @@ func spawn_entity(entity: Node, spawn_name: StringName):
 	match dimensions:
 		0: # 3D
 			var spawn_point: Node3D = _get_spawn_point(spawn_name, _spawn_points_3d)
-			 
 			if null == spawn_point:
 				printerr("SpawnerComponent has no 3D spawner children")
 				return
-			
 			if entity is not Node3D:
 				printerr("Spawnable entity has incorrent dimensions! It should inherit from Node3D!")
 				return
@@ -80,11 +80,9 @@ func spawn_entity(entity: Node, spawn_name: StringName):
 			
 		1: # 2D
 			var spawn_point: Node2D = _get_spawn_point(spawn_name, _spawn_points_2d)
-			
 			if null == spawn_point:
 				printerr("SpawnerController has no 2D spawner children")
 				return
-			
 			if entity is not Node2D:
 				printerr("Spawnable entity has incorrent dimensions! It should inherit from Node2D!")
 				return
