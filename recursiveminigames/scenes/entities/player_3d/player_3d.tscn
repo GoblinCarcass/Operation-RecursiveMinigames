@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://ceo7bsiuu6vs"]
 
-[ext_resource type="PackedScene" uid="uid://x8w82oc2yan0" path="res://assets/girl_test_GlTF/girl_tutorial_test_model.tscn" id="1_8afob"]
-[ext_resource type="Script" uid="uid://d1hs76ejvobyp" path="res://scenes/entities/player/player.gd" id="1_dovo2"]
-[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_p47bc"]
-[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_75vfm"]
-[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_0owmy"]
-[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://d1hs76ejvobyp" path="res://scenes/entities/player_3d/player_3d.gd" id="1_4gujb"]
+[ext_resource type="PackedScene" uid="uid://x8w82oc2yan0" path="res://assets/girl_test_GlTF/girl_tutorial_test_model.tscn" id="2_jqkpj"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_s07fh"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_6t8aq"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_bdqdk"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_d0rxk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8afob"]
 height = 1.93324
@@ -13,14 +13,14 @@ height = 1.93324
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 513
 collision_mask = 513
-script = ExtResource("1_dovo2")
+script = ExtResource("1_4gujb")
 mouse_sensitivity = 2.4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996916, 0)
 shape = SubResource("CapsuleShape3D_8afob")
 
-[node name="Model" parent="." instance=ExtResource("1_8afob")]
+[node name="Model" parent="." instance=ExtResource("2_jqkpj")]
 unique_name_in_owner = true
 
 [node name="CameraRotator" type="Marker3D" parent="."]
@@ -42,77 +42,77 @@ collide_with_bodies = false
 
 [node name="StateChart" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("3_p47bc")
+script = ExtResource("3_s07fh")
 metadata/_custom_type_script = "uid://couw105c3bde4"
 
 [node name="Root" type="Node" parent="StateChart"]
-script = ExtResource("4_75vfm")
+script = ExtResource("4_6t8aq")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://jk2jm1g6q853"
 
 [node name="Idle" type="Node" parent="StateChart/Root"]
-script = ExtResource("5_0owmy")
+script = ExtResource("5_bdqdk")
 metadata/_custom_type_script = "uid://cytafq8i1y8qm"
 
 [node name="to_Walking" type="Node" parent="StateChart/Root/Idle"]
-script = ExtResource("6_75vfm")
+script = ExtResource("6_d0rxk")
 to = NodePath("../../Walking")
 event = &"to_walking"
 delay_in_seconds = "0.0"
 
 [node name="to_Jumping" type="Node" parent="StateChart/Root/Idle"]
-script = ExtResource("6_75vfm")
+script = ExtResource("6_d0rxk")
 to = NodePath("../../Jumping")
 event = &"to_jumping"
 delay_in_seconds = "0.0"
 metadata/_custom_type_script = "uid://cf1nsco3w0mf6"
 
 [node name="Walking" type="Node" parent="StateChart/Root"]
-script = ExtResource("5_0owmy")
+script = ExtResource("5_bdqdk")
 metadata/_custom_type_script = "uid://cytafq8i1y8qm"
 
 [node name="to_Idle" type="Node" parent="StateChart/Root/Walking"]
-script = ExtResource("6_75vfm")
+script = ExtResource("6_d0rxk")
 to = NodePath("../../Idle")
 event = &"to_idle"
 delay_in_seconds = "0.0"
 
 [node name="to_Running" type="Node" parent="StateChart/Root/Walking"]
-script = ExtResource("6_75vfm")
+script = ExtResource("6_d0rxk")
 to = NodePath("../../Running")
 event = &"to_running"
 delay_in_seconds = "0.0"
 
 [node name="to_Jumping" type="Node" parent="StateChart/Root/Walking"]
-script = ExtResource("6_75vfm")
+script = ExtResource("6_d0rxk")
 to = NodePath("../../Jumping")
 event = &"to_jumping"
 delay_in_seconds = "0.0"
 metadata/_custom_type_script = "uid://cf1nsco3w0mf6"
 
 [node name="Running" type="Node" parent="StateChart/Root"]
-script = ExtResource("5_0owmy")
+script = ExtResource("5_bdqdk")
 metadata/_custom_type_script = "uid://cytafq8i1y8qm"
 
 [node name="to_Walking" type="Node" parent="StateChart/Root/Running"]
-script = ExtResource("6_75vfm")
+script = ExtResource("6_d0rxk")
 to = NodePath("../../Walking")
 event = &"to_walking"
 delay_in_seconds = "0.0"
 
 [node name="to_Jumping" type="Node" parent="StateChart/Root/Running"]
-script = ExtResource("6_75vfm")
+script = ExtResource("6_d0rxk")
 to = NodePath("../../Jumping")
 event = &"to_jumping"
 delay_in_seconds = "0.0"
 metadata/_custom_type_script = "uid://cf1nsco3w0mf6"
 
 [node name="Jumping" type="Node" parent="StateChart/Root"]
-script = ExtResource("5_0owmy")
+script = ExtResource("5_bdqdk")
 metadata/_custom_type_script = "uid://cytafq8i1y8qm"
 
 [node name="stop_Jumping" type="Node" parent="StateChart/Root/Jumping"]
-script = ExtResource("6_75vfm")
+script = ExtResource("6_d0rxk")
 to = NodePath("../../Walking")
 event = &"stop_jumping"
 delay_in_seconds = "0.0"
