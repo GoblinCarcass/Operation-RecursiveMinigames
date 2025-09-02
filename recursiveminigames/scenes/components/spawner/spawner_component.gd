@@ -8,7 +8,11 @@ signal entity_spawned(entity: Node)
 ## The dimensions are provided explicitly to avoid confusion and odd error handling.
 @export_enum("3D", "2D") var dimensions: int
 
-var _last_spawned_entity: Node = null
+var _last_spawned_entity: Node = null:
+	get = get_last_spawned_entity
+func get_last_spawned_entity() -> Node:
+	return _last_spawned_entity
+
 var _spawned_entites: Array[Node] = []
 var _spawn_points_2d: Array[Node2D] = []
 var _spawn_points_3d: Array[Node3D] = []
