@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbbwjj07u8768"]
+
+[ext_resource type="Script" uid="uid://cyllvad2bxd42" path="res://addons/vine_boom/vine_boom_dock.gd" id="1_3abwt"]
+[ext_resource type="Texture2D" uid="uid://bxpsp3a1six2p" path="res://addons/vine_boom/assets/unpressed.png" id="2_n1aji"]
+[ext_resource type="Texture2D" uid="uid://ciqgxhvrke8bs" path="res://addons/vine_boom/assets/pressed.png" id="3_itbk2"]
+[ext_resource type="AudioStream" uid="uid://bwsf6b4ngh4j1" path="res://addons/vine_boom/assets/vine-boom sfx.mp3" id="4_bbj0r"]
+
+[node name="Vine Boom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3abwt")
+
+[node name="BoomButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -118.0
+offset_bottom = 106.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_n1aji")
+texture_pressed = ExtResource("3_itbk2")
+texture_hover = ExtResource("2_n1aji")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BoomButton"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -117.0
+offset_bottom = 99.0
+grow_horizontal = 0
+text = "BOOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bbj0r")

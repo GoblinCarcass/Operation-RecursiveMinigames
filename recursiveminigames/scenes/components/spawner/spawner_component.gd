@@ -70,6 +70,7 @@ func spawn_entity(entity: Node, spawn_name: String):
 	# Step 2: Get the desired destination
 	# Step 3: Ship the entity to the destination
 	# Simple, right?
+	
 	match dimensions:
 		0: # 3D
 			var spawn_point: Node3D = _get_spawn_point(spawn_name, _spawn_points_3d)
