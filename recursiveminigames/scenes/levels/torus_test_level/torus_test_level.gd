@@ -1,9 +1,9 @@
 extends Node3D
 
-@onready var spawner_component: SpawnerComponent = $SpawnerComponent
-
 #TODO: Player scene shouldn't be loaded inside of a level, rethink where you should dump it.
 const PLAYER = preload(Paths.TEST_PLAYER_3D)
+
+@onready var spawner_component: SpawnerComponent = $SpawnerComponent
 
 func _ready() -> void:
 	var player_node: CharacterBody3D = PLAYER.instantiate()
