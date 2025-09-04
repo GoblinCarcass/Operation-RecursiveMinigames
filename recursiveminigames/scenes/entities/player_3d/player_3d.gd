@@ -135,7 +135,7 @@ func handle_camera_rotation(event: InputEvent) -> void:
 	self.camera_rotator.rotate_x(-event.relative.y * mouse_sensitivity / 500)
 	
 	#It turns off camera cartwheels lmao
-	camera_rotator.rotation.x = clampf(camera_rotator.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+	camera_rotator.rotation.x = clampf(camera_rotator.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 
 func handle_gravity(delta: float) -> void:

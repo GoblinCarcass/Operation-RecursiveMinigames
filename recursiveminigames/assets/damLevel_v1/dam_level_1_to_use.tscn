@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdswyg3fc4oyr"]
+
+[ext_resource type="PackedScene" uid="uid://bucmi7417oxj5" path="res://assets/damLevel_v1/DamLevel1_to use.glb" id="1_xajry"]
+
+[node name="DamLevel1_to use" instance=ExtResource("1_xajry")]

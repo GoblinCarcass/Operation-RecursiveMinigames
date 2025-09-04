@@ -40,10 +40,10 @@ script = ExtResource("1_tq8hf")
 transform = Transform3D(-0.374833, 0, -0.927092, 0, 1, 0, 0.927092, 0, -0.374833, -82.7668, 106.757, 52.6131)
 
 [node name="InstantTorus" type="Marker3D" parent="SpawnerComponent"]
-transform = Transform3D(0.410496, 0, 0.911862, 0, 1, 0, -0.911862, 0, 0.410496, -88.3779, 107.374, 44.1356)
+transform = Transform3D(0.410496, 0, 0.911862, 0, 1, 0, -0.911862, 0, 0.410496, -91.8551, 107.374, 42.5455)
 
 [node name="OnBlueBox" type="Marker3D" parent="SpawnerComponent"]
-transform = Transform3D(0.0567973, 0, -0.998386, 0, 1, 0, 0.998386, 0, 0.0567973, -91.5451, 109.229, 51.7634)
+transform = Transform3D(0.0567973, 0, -0.998386, 0, 1, 0, 0.998386, 0, 0.0567973, -91.4334, 109.229, 51.6426)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.941094, 0.338063, -0.00749999, 0.205108, 0.588328, 0.782177, 0.268837, 0.734563, -0.623011, 0, 21.3782, 0)
