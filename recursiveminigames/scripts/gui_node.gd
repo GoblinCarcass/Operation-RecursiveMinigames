@@ -10,6 +10,7 @@ class_name GUINode extends Control
 var _can_start_dialog: bool = true
 var _can_acknowledge_dialog: bool = true
 
+
 func _ready() -> void:
 	connect_signals()
 	
@@ -18,6 +19,7 @@ func _ready() -> void:
 func _on_tree_exited() -> void:
 	disconnect_signals()
 	
+
 
 func _on_dialog_started(id: String) -> void:
 	#print("The dialog signal works as intended!")
@@ -62,8 +64,6 @@ func _on_dialog_started_cd_timeout() -> void:
 
 func _on_madtak_dialog_started(_sheet_name: Variant, _sequence_id: Variant):
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-
 
 
 func create_oneshot_timer(callable: Callable, wait_time: float):
