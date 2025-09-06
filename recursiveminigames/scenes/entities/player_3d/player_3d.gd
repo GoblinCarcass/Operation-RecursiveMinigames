@@ -31,16 +31,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interaction"):
 		handle_interaction()
 	if event.is_action_pressed("dialog_continue"):
-		# TODO: It doesn't recognize left click as continue imput even though it is on the list
-		if MadTalkGlobals.is_during_dialog:
-			SignalBus.dialog_acknowledged.emit()
+		if not MadTalkGlobals.is_during_dialog:
+			return
+		SignalBus.dialog_acknowledged.emit()
 
 
 
 func _physics_process(_delta: float) -> void:
 	_i_object = i_ray.get_collider()
 	if _i_object:
-		if !_i_object.is_in_group("interactable"):
+		if not _i_object.is_in_group("interactable"):
 			return
 		SignalBus.crosshair_text_changed.emit(_i_object.get_cursor_text())
 	else:
@@ -86,7 +86,7 @@ func _on_walking_state_physics_processing(delta: float) -> void:
 	handle_gravity(delta)
 	move_and_slide()
 	
-	if !_input_dir:
+	if not _input_dir:
 		state.send_event("to_idle")
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		state.send_event("to_jumping")
@@ -115,14 +115,14 @@ func _on_jumping_state_entered() -> void:
 
 func handle_interaction() -> void:
 	_i_object = i_ray.get_collider()
-	if !_i_object:
+	if not _i_object:
 		return
 	if _i_object.is_in_group("interactable"):
 		_i_object.interact()
 
 
 func handle_camera_rotation(event: InputEvent) -> void:
-	if !_can_rotate_camera:
+	if not _can_rotate_camera:
 		return
 	
 	self.rotate_y(-event.relative.x * mouse_sensitivity / 500)
@@ -138,14 +138,14 @@ func handle_gravity(delta: float) -> void:
 
 
 func handle_jump() -> void:
-	if !_can_move:
+	if not _can_move:
 		return
 	velocity.y = JUMP_VELOCITY
 
 
 
 func handle_movement(speed: float) -> void:
-	if !_can_move:
+	if not _can_move:
 		return
 		
 	_input_dir = Input.get_vector("left", "right", "up", "down")
