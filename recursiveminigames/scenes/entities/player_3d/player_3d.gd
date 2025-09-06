@@ -13,13 +13,9 @@ const WALK_SPEED := 5.0
 const RUN_SPEED := 10.0
 const JUMP_VELOCITY = 4.5
 
-# 2D WSAD Input
 var _input_dir: Vector2 = Vector2.ZERO
 var _direction: Vector3 = Vector3.ZERO
-
-# Collider of the InteractionRaycast
-var _i_object: Node3D = null
-
+var _i_object: Node3D = null # Collider of the InteractionRaycast
 var _can_move: bool = true
 var _can_rotate_camera: bool = true
 

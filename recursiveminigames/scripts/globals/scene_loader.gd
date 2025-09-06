@@ -67,6 +67,7 @@ func load_scene(path: String):
 		assert(false,
 		"You are trying to load a scene of incorrect type!
 		It should have a root of either Node2D, Node3D or Control!")
+		printerr("SceneLoader tried to load a node of an incorrect type.")
 	
 	#var new = load(scene_path).instantiate()
 	#gui.add_child(new)
