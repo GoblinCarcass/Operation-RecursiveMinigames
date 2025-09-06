@@ -11,10 +11,8 @@ var _can_start_dialog: bool = true
 var _can_acknowledge_dialog: bool = true
 
 func _ready() -> void:
-	SignalBus.dialog_started.connect(_on_dialog_started)
-	SignalBus.dialog_acknowledged.connect(_on_dialog_acknowledged)
-	madtalk.dialog_started.connect(_on_madtak_dialog_started)
-	madtalk.dialog_finished.connect(_on_madtalk_dialog_finished)
+	connect_signals()
+	
 
 
 func _on_tree_exited() -> void:
@@ -66,15 +64,6 @@ func _on_madtak_dialog_started(_sheet_name: Variant, _sequence_id: Variant):
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
-func disconnect_signals():
-	if SignalBus.dialog_started.is_connected(_on_dialog_started):
-		SignalBus.dialog_started.disconnect(_on_dialog_started)
-	if SignalBus.dialog_acknowledged.is_connected(_on_dialog_acknowledged):
-		SignalBus.dialog_acknowledged.disconnect(_on_dialog_acknowledged)
-	if madtalk.dialog_started.is_connected(_on_madtak_dialog_started):
-		madtalk.dialog_started.disconnect(_on_madtak_dialog_started)
-	if madtalk.dialog_finished.is_connected(_on_madtalk_dialog_finished):
-		madtalk.dialog_finished.disconnect(_on_madtalk_dialog_finished)
 
 
 func create_oneshot_timer(callable: Callable, wait_time: float):
@@ -84,3 +73,21 @@ func create_oneshot_timer(callable: Callable, wait_time: float):
 	dialog_timer.autostart = true
 	dialog_timer.one_shot = true
 	add_child(dialog_timer)
+
+
+func connect_signals():
+	SignalBus.dialog_started.connect(_on_dialog_started)
+	SignalBus.dialog_acknowledged.connect(_on_dialog_acknowledged)
+	madtalk.dialog_started.connect(_on_madtak_dialog_started)
+	madtalk.dialog_finished.connect(_on_madtalk_dialog_finished)
+
+
+func disconnect_signals():
+	if SignalBus.dialog_started.is_connected(_on_dialog_started):
+		SignalBus.dialog_started.disconnect(_on_dialog_started)
+	if SignalBus.dialog_acknowledged.is_connected(_on_dialog_acknowledged):
+		SignalBus.dialog_acknowledged.disconnect(_on_dialog_acknowledged)
+	if madtalk.dialog_started.is_connected(_on_madtak_dialog_started):
+		madtalk.dialog_started.disconnect(_on_madtak_dialog_started)
+	if madtalk.dialog_finished.is_connected(_on_madtalk_dialog_finished):
+		madtalk.dialog_finished.disconnect(_on_madtalk_dialog_finished)
