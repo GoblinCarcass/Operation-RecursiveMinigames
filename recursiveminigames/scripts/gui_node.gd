@@ -18,14 +18,8 @@ func _ready() -> void:
 
 
 func _on_tree_exited() -> void:
-	if SignalBus.dialog_started.is_connected(_on_dialog_started):
-		SignalBus.dialog_started.disconnect(_on_dialog_started)
-	if SignalBus.dialog_acknowledged.is_connected(_on_dialog_acknowledged):
-		SignalBus.dialog_acknowledged.disconnect(_on_dialog_acknowledged)
-	if madtalk.dialog_started.is_connected(_on_madtak_dialog_started):
-		madtalk.dialog_started.disconnect(_on_madtak_dialog_started)
-	if madtalk.dialog_finished.is_connected(_on_madtalk_dialog_finished):
-		madtalk.dialog_finished.disconnect(_on_madtalk_dialog_finished)
+	disconnect_signals()
+	
 
 func _on_dialog_started(id: String) -> void:
 	#print("The dialog signal works as intended!")
@@ -46,12 +40,7 @@ func _on_dialog_acknowledged():
 		madtalk.dialog_acknowledge()
 	
 	_can_acknowledge_dialog = false
-	var dialog_timer: Timer = Timer.new()
-	dialog_timer.timeout.connect(_on_dialog_acknowledge_cd_timeout)
-	dialog_timer.wait_time = dialog_acknowledge_cd
-	dialog_timer.autostart = true
-	dialog_timer.one_shot = true
-	add_child(dialog_timer)
+	create_oneshot_timer(_on_dialog_acknowledge_cd_timeout, dialog_acknowledge_cd)
 
  
 func _on_dialog_acknowledge_cd_timeout() -> void:
@@ -66,12 +55,7 @@ func _on_madtalk_dialog_finished(_sheet_name: Variant, _sequence_id: Variant):
 	SignalBus.player_movement_mode_set.emit(true)
 	SignalBus.player_can_rotate_camera_mode_set.emit(true)
 	
-	var dialog_timer: Timer = Timer.new()
-	dialog_timer.timeout.connect(_on_dialog_started_cd_timeout)
-	dialog_timer.wait_time = dialog_start_cd
-	dialog_timer.autostart = true
-	dialog_timer.one_shot = true
-	add_child(dialog_timer)
+	create_oneshot_timer(_on_dialog_started_cd_timeout, dialog_start_cd)
 
 
 func _on_dialog_started_cd_timeout() -> void:
@@ -80,3 +64,23 @@ func _on_dialog_started_cd_timeout() -> void:
 
 func _on_madtak_dialog_started(_sheet_name: Variant, _sequence_id: Variant):
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func disconnect_signals():
+	if SignalBus.dialog_started.is_connected(_on_dialog_started):
+		SignalBus.dialog_started.disconnect(_on_dialog_started)
+	if SignalBus.dialog_acknowledged.is_connected(_on_dialog_acknowledged):
+		SignalBus.dialog_acknowledged.disconnect(_on_dialog_acknowledged)
+	if madtalk.dialog_started.is_connected(_on_madtak_dialog_started):
+		madtalk.dialog_started.disconnect(_on_madtak_dialog_started)
+	if madtalk.dialog_finished.is_connected(_on_madtalk_dialog_finished):
+		madtalk.dialog_finished.disconnect(_on_madtalk_dialog_finished)
+
+
+func create_oneshot_timer(callable: Callable, wait_time: float):
+	var dialog_timer: Timer = Timer.new()
+	dialog_timer.timeout.connect(_on_dialog_acknowledge_cd_timeout)
+	dialog_timer.wait_time = wait_time
+	dialog_timer.autostart = true
+	dialog_timer.one_shot = true
+	add_child(dialog_timer)
