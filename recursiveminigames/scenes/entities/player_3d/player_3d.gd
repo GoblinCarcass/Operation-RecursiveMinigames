@@ -6,9 +6,8 @@ extends CharacterBody3D
 @onready var state: StateChart = %StateChart
 @onready var i_ray: RayCast3D = %InteractionRaycast
 
-@export_range(0, 10, 0.2) var mouse_sensitivity: float
+@export_range(2, 10, 0.2) var mouse_sensitivity: float
 
-const DEFAULT_MOUSE_SENSITIVITY := 2.4
 const WALK_SPEED := 5.0
 const RUN_SPEED := 10.0
 const JUMP_VELOCITY = 4.5
@@ -19,14 +18,11 @@ var _i_object: Node3D = null # Collider of the InteractionRaycast
 var _can_move: bool = true
 var _can_rotate_camera: bool = true
 
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	SignalBus.player_movement_mode_set.connect(_on_movement_mode_set)
 	SignalBus.player_can_rotate_camera_mode_set.connect(_on_camera_rotation_mode_set)
-	
-	if mouse_sensitivity == 0:
-		mouse_sensitivity = DEFAULT_MOUSE_SENSITIVITY
-
 
 
 func _unhandled_input(event: InputEvent) -> void:
