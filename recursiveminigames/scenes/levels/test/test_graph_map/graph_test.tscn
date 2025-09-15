@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7e7dbf6r7uyc"]
+
+[ext_resource type="PackedScene" uid="uid://b658j6lqaxdf1" path="res://scenes/components/graph/graph_controller/graph_manager.tscn" id="1_8nm3s"]
+
+[node name="GraphTest" type="Node2D"]
+
+[node name="GraphManager" parent="." instance=ExtResource("1_8nm3s")]

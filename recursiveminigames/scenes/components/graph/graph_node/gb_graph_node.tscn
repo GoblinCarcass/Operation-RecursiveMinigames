@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ye4h8chr2hfs"]
+
+[ext_resource type="Script" uid="uid://c8873fbt2boxe" path="res://scenes/components/graph/graph_node/gb_graph_node.gd" id="1_y1ks5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mqopu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1ks5"]
+size = Vector2(6, 6)
+
+[node name="GraphNode" type="Area2D"]
+script = ExtResource("1_y1ks5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = SubResource("CanvasTexture_mqopu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y1ks5")
