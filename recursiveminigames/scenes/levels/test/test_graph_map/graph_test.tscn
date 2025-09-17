@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7e7dbf6r7uyc"]
+[gd_scene load_steps=3 format=3 uid="uid://b7e7dbf6r7uyc"]
 
-[ext_resource type="PackedScene" uid="uid://b658j6lqaxdf1" path="res://scenes/components/graph/graph_controller/graph_manager.tscn" id="1_8nm3s"]
+[ext_resource type="PackedScene" uid="uid://b658j6lqaxdf1" path="res://scenes/components/graph/graph_controller/gb_graph_controller.tscn" id="1_8nm3s"]
+[ext_resource type="PackedScene" uid="uid://ye4h8chr2hfs" path="res://scenes/components/graph/graph_node/gb_graph_node.tscn" id="2_jp858"]
 
 [node name="GraphTest" type="Node2D"]
 
-[node name="GraphManager" parent="." instance=ExtResource("1_8nm3s")]
+[node name="GraphController" parent="." instance=ExtResource("1_8nm3s")]
+
+[node name="GraphNode" parent="GraphController" instance=ExtResource("2_jp858")]
+position = Vector2(1004, 143)
+
+[node name="GraphNode2" parent="GraphController" instance=ExtResource("2_jp858")]
+position = Vector2(503, 218)
+
+[node name="GraphNode3" parent="GraphController" instance=ExtResource("2_jp858")]
+position = Vector2(350, 523)
