@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://27a8t2ur4f08"]
+
+[ext_resource type="Script" uid="uid://jmsm4mtdvrya" path="res://scenes/components/graph/graph_node_2d/graph_node_2d.gd" id="1_3kdvw"]
+
+[node name="GraphNode2D" type="Area2D"]
+script = ExtResource("1_3kdvw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true

@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://b7e7dbf6r7uyc"]
+[gd_scene load_steps=2 format=3 uid="uid://b7e7dbf6r7uyc"]
+
+[ext_resource type="Script" uid="uid://dvqumojrban8y" path="res://scenes/components/graph/graph_manager_2d/graph_manager_2d.gd" id="1_jp858"]
 
 [node name="GraphTest" type="Node2D"]
+
+[node name="GraphManager2D" type="Node2D" parent="."]
+script = ExtResource("1_jp858")
+metadata/_custom_type_script = "uid://dvqumojrban8y"

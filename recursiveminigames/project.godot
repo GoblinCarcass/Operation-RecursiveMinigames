@@ -36,10 +36,6 @@ SignalBus="*res://scripts/globals/signal_bus.gd"
 SceneLoader="*res://scripts/globals/scene_loader.gd"
 MadTalkGlobals="*res://addons/madtalk/runtime/MadTalkGlobals.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/viewport_width=1920
