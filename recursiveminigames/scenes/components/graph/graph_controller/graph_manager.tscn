@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://cajeuwamk80j8" path="res://scenes/components/graph/graph_controller/gb_graph_controller.gd" id="1_qg7ge"]
 
-[node name="GraphController" type="Node2D"]
+[node name="GraphManager" type="Node2D"]
 script = ExtResource("1_qg7ge")

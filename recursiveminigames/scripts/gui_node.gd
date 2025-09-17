@@ -68,7 +68,7 @@ func _on_madtak_dialog_started(_sheet_name: Variant, _sequence_id: Variant):
 
 func create_oneshot_timer(callable: Callable, wait_time: float):
 	var dialog_timer: Timer = Timer.new()
-	dialog_timer.timeout.connect(callable)
+	dialog_timer.timeout.connect(_on_dialog_acknowledge_cd_timeout)
 	dialog_timer.wait_time = wait_time
 	dialog_timer.autostart = true
 	dialog_timer.one_shot = true
