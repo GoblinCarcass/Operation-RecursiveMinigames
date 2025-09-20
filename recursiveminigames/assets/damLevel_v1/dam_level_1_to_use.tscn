@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdswyg3fc4oyr"]
+[gd_scene load_steps=3 format=3 uid="uid://bdswyg3fc4oyr"]
 
 [ext_resource type="PackedScene" uid="uid://bucmi7417oxj5" path="res://assets/damLevel_v1/DamLevel1_to use.glb" id="1_xajry"]
+[ext_resource type="Material" path="res://assets/damLevel_v1/textures/brickwork/brickwork g4.tres" id="2_7pa3g"]
 
 [node name="DamLevel1_to use" instance=ExtResource("1_xajry")]
+
+[node name="building" parent="Scene Collection/damlevel_v1/around the outside 1/dam side building" index="0"]
+surface_material_override/0 = ExtResource("2_7pa3g")

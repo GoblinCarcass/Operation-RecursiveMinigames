@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxvxgc6wb8vlv"
-path.s3tc="res://.godot/imported/GirlTutorialTest_GirlTutorialTest_Char1Tut_Tex.png-5d234a54dccb4b1c268164ede6ed1c3a.s3tc.ctex"
+uid="uid://dp1fjhtnl3w6q"
+path.s3tc="res://.godot/imported/brickwork g4_normal.png-b7b552f4ebff1f657e2e9e0311786446.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "4d2f13a70c5f30a6497c01835b19a654"
-}
 
 [deps]
 
-source_file="res://assets/girl_test_GlTF/GirlTutorialTest_GirlTutorialTest_Char1Tut_Tex.png"
-dest_files=["res://.godot/imported/GirlTutorialTest_GirlTutorialTest_Char1Tut_Tex.png-5d234a54dccb4b1c268164ede6ed1c3a.s3tc.ctex"]
+source_file="res://assets/damLevel_v1/textures/brickwork/brickwork g4_normal.png"
+dest_files=["res://.godot/imported/brickwork g4_normal.png-b7b552f4ebff1f657e2e9e0311786446.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +22,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://assets/damLevel_v1/textures/brickwork/brickwork g4_normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
