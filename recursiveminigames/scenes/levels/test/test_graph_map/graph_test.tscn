@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7e7dbf6r7uyc"]
+[gd_scene load_steps=6 format=3 uid="uid://b7e7dbf6r7uyc"]
 
 [ext_resource type="Script" uid="uid://dvqumojrban8y" path="res://scenes/components/graph/graph_manager_2d/graph_manager_2d.gd" id="1_jp858"]
 [ext_resource type="PackedScene" uid="uid://27a8t2ur4f08" path="res://scenes/components/graph/graph_node_2d/graph_node_2d.tscn" id="2_jp858"]
+[ext_resource type="Script" uid="uid://cagilodb7bggv" path="res://scenes/components/graph/graph_connection_2d.gd" id="3_ao0eb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ao0eb"]
 radius = 32.26
@@ -15,20 +16,35 @@ size = Vector2(50, 50)
 script = ExtResource("1_jp858")
 metadata/_custom_type_script = "uid://dvqumojrban8y"
 
-[node name="Apple" parent="GraphManager2D" node_paths=PackedStringArray("connections") instance=ExtResource("2_jp858")]
-position = Vector2(128, 95)
-connections = [NodePath("../Banana")]
+[node name="Apple" parent="GraphManager2D" instance=ExtResource("2_jp858")]
+position = Vector2(432, 200)
 shape_export = SubResource("CircleShape2D_ao0eb")
 sprite_export = SubResource("PlaceholderTexture2D_ia3l6")
 
-[node name="Banana" parent="GraphManager2D" node_paths=PackedStringArray("connections") instance=ExtResource("2_jp858")]
-position = Vector2(215, 248)
-connections = [NodePath("../Key"), NodePath("../Apple")]
+[node name="GraphConnection2D" type="Line2D" parent="GraphManager2D/Apple" node_paths=PackedStringArray("from", "to")]
+script = ExtResource("3_ao0eb")
+from = NodePath("..")
+to = NodePath("../../Banana")
+metadata/_custom_type_script = "uid://cagilodb7bggv"
+
+[node name="Banana" parent="GraphManager2D" instance=ExtResource("2_jp858")]
+position = Vector2(675, 471)
 shape_export = SubResource("CircleShape2D_ao0eb")
 sprite_export = SubResource("PlaceholderTexture2D_ia3l6")
 
-[node name="Key" parent="GraphManager2D" node_paths=PackedStringArray("connections") instance=ExtResource("2_jp858")]
-position = Vector2(409, 115)
-connections = [NodePath("../Apple")]
+[node name="GraphConnection2D" type="Line2D" parent="GraphManager2D/Banana" node_paths=PackedStringArray("from", "to")]
+script = ExtResource("3_ao0eb")
+from = NodePath("..")
+to = NodePath("../../Key")
+metadata/_custom_type_script = "uid://cagilodb7bggv"
+
+[node name="Key" parent="GraphManager2D" instance=ExtResource("2_jp858")]
+position = Vector2(1166, 200)
 shape_export = SubResource("CircleShape2D_ao0eb")
 sprite_export = SubResource("PlaceholderTexture2D_ia3l6")
+
+[node name="GraphConnection2D" type="Line2D" parent="GraphManager2D/Key" node_paths=PackedStringArray("from", "to")]
+script = ExtResource("3_ao0eb")
+from = NodePath("..")
+to = NodePath("../../Apple")
+metadata/_custom_type_script = "uid://cagilodb7bggv"

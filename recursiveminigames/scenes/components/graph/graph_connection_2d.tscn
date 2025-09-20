@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://0jaeb1u8n4qw"]
+
+[ext_resource type="Script" uid="uid://cagilodb7bggv" path="res://scenes/components/graph/graph_connection_2d.gd" id="1_1tkmi"]
+
+[node name="GraphConnection2D" type="Line2D"]
+points = PackedVector2Array(-50, 0, 50, 0)
+width = 5.0
+default_color = Color(0.854902, 0.113725, 0.721569, 0.662745)
+script = ExtResource("1_1tkmi")
+metadata/_edit_lock_ = true

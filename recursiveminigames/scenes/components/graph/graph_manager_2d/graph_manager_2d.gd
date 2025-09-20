@@ -13,7 +13,10 @@ func _ready() -> void:
 		indexed_graph_nodes[node.get_index()] = node
 	
 	# Save the connections between the nodes
+	# TODO: Properly save the connections between nodes
 	for key in indexed_graph_nodes.keys():
-		var node: GraphNode2D = indexed_graph_nodes[key] 
+		var node: GraphNode2D = indexed_graph_nodes[key]
 		graph_connections[key] = node.connections
 	
+	print("Nodes: " + str(indexed_graph_nodes))
+	print("Connections: " + str(graph_connections))
