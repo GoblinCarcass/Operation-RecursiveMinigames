@@ -37,7 +37,7 @@ script = ExtResource("1_tq8hf")
 [node name="SpawnerComponent" parent="." instance=ExtResource("2_iajpi")]
 
 [node name="Default" type="Marker3D" parent="SpawnerComponent"]
-transform = Transform3D(-0.374833, 0, -0.927092, 0, 1, 0, 0.927092, 0, -0.374833, -82.7668, 106.757, 52.6131)
+transform = Transform3D(-0.075761765, 0, -0.9971255, 0, 1, 0, 0.9971255, 0, -0.075761765, -77.56985, 106.4068, 58.876347)
 
 [node name="InstantTorus" type="Marker3D" parent="SpawnerComponent"]
 transform = Transform3D(0.410496, 0, 0.911862, 0, 1, 0, -0.911862, 0, 0.410496, -91.8551, 107.374, 42.5455)
