@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://bjpr0l0h24bt2" path="res://assets/damLevel_v1/textures/brickwork/brickwork g4.tres" id="2_7pa3g"]
 [ext_resource type="Material" uid="uid://caffj5os3ohk7" path="res://assets/damLevel_v1/textures/concrete slabs/bad concrete slabs.tres" id="2_b7e4v"]
 [ext_resource type="Material" uid="uid://dpaxuwh7rgxf3" path="res://assets/damLevel_v1/textures/concrete/concrete.tres" id="2_gspgv"]
-[ext_resource type="Material" path="res://assets/damLevel_v1/textures/bad concrete gravel tiles/bad concrete gravel tiles.tres" id="5_gtevu"]
+[ext_resource type="Material" uid="uid://dblwt6npxdn2d" path="res://assets/damLevel_v1/textures/bad concrete gravel tiles/bad concrete gravel tiles.tres" id="5_gtevu"]
 
 [node name="DamLevel1_to use" instance=ExtResource("1_xajry")]
 
@@ -58,6 +58,9 @@ surface_material_override/0 = ExtResource("2_gspgv")
 
 [node name="building" parent="Scene Collection/damlevel_v1/around the outside 1/dam side building" index="0"]
 surface_material_override/0 = ExtResource("2_7pa3g")
+
+[node name="entrance door " parent="Scene Collection/damlevel_v1/around the outside 1/dam side building" index="1"]
+transform = Transform3D(0.9855122, 0, -0.16960444, 0, 1, 0, 0.16960444, 0, 0.9855122, 104.90535, 19.856747, 38.455704)
 
 [node name="building interior" parent="Scene Collection/damlevel_v1/around the outside 1/dam side building/Interior" index="0"]
 surface_material_override/0 = ExtResource("5_gtevu")
