@@ -1,92 +1,99 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdswyg3fc4oyr"]
+[gd_scene load_steps=8 format=3 uid="uid://bdswyg3fc4oyr"]
 
-[ext_resource type="PackedScene" uid="uid://bucmi7417oxj5" path="res://assets/damLevel_v1/DamLevel1_to use.glb" id="1_xajry"]
-[ext_resource type="Material" uid="uid://bjpr0l0h24bt2" path="res://assets/damLevel_v1/textures/brickwork/brickwork g4.tres" id="2_7pa3g"]
-[ext_resource type="Material" uid="uid://caffj5os3ohk7" path="res://assets/damLevel_v1/textures/concrete slabs/bad concrete slabs.tres" id="2_b7e4v"]
-[ext_resource type="Material" uid="uid://dpaxuwh7rgxf3" path="res://assets/damLevel_v1/textures/concrete/concrete.tres" id="2_gspgv"]
-[ext_resource type="Material" uid="uid://dblwt6npxdn2d" path="res://assets/damLevel_v1/textures/bad concrete gravel tiles/bad concrete gravel tiles.tres" id="5_gtevu"]
+[ext_resource type="PackedScene" uid="uid://dfp10qb1te57v" path="res://assets/damLevel_v1/DamLevel1_to use.glb" id="1_xajry"]
+[ext_resource type="Material" uid="uid://caffj5os3ohk7" path="res://assets/damLevel_v1/textures/concrete slabs/bad concrete slabs.tres" id="2_gtevu"]
+[ext_resource type="Material" uid="uid://c8t3vh3i7pxau" path="res://assets/damLevel_v1/textures/bad concrete gravel tiles/bad concrete gravel tiles.tres" id="2_yng5b"]
+[ext_resource type="Material" uid="uid://dpaxuwh7rgxf3" path="res://assets/damLevel_v1/textures/concrete/concrete.tres" id="3_h74lt"]
+[ext_resource type="Material" uid="uid://cks6i46dvwaxr" path="res://assets/damLevel_v1/textures/window/hopefully a window.tres" id="4_yng5b"]
+[ext_resource type="Material" uid="uid://bjpr0l0h24bt2" path="res://assets/damLevel_v1/textures/brickwork/brickwork g4.tres" id="5_lenty"]
+[ext_resource type="Material" uid="uid://dyaqyse0hua8f" path="res://assets/damLevel_v1/textures/painted scratched metal/painted scratched metal.tres" id="7_lenty"]
 
 [node name="DamLevel1_to use" instance=ExtResource("1_xajry")]
 
-[node name="dam itself" parent="Scene Collection/damlevel_v1/main structure" index="0"]
-surface_material_override/0 = ExtResource("2_b7e4v")
+[node name="Cube" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_yng5b")
 
-[node name="dam building" parent="Scene Collection/damlevel_v1/main structure" index="1"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="dam itself" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_gtevu")
 
-[node name="CollisionShape3D" parent="Scene Collection/damlevel_v1/main structure/dam building/StaticBody3D" index="0"]
-visible = false
+[node name="dam building" parent="." index="4"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="dam building windows" parent="Scene Collection/damlevel_v1/main structure" index="3"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="dam entrance gate " parent="." index="5"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="dam side railing post" parent="Scene Collection/damlevel_v1/around the outside 1" index="0"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="dam building windows" parent="." index="6"]
+surface_material_override/0 = ExtResource("3_h74lt")
+surface_material_override/1 = ExtResource("4_yng5b")
 
-[node name="dam side object_001" parent="Scene Collection/damlevel_v1/around the outside 1" index="1"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="dam side railing post" parent="." index="7"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="dam side object" parent="Scene Collection/damlevel_v1/around the outside 1" index="2"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="dam side object_001" parent="." index="8"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="dam side ledge" parent="Scene Collection/damlevel_v1/around the outside 1" index="3"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="dam side object" parent="." index="9"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="CollisionShape3D" parent="Scene Collection/damlevel_v1/around the outside 1/dam side ledge/StaticBody3D" index="0"]
-visible = false
+[node name="dam side ledge" parent="." index="10"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="dam side ramp" parent="Scene Collection/damlevel_v1/around the outside 1" index="4"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="dam side ramp" parent="." index="11"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="dam side railing post_001" parent="Scene Collection/damlevel_v1/around the outside 1" index="5"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="dam side railing post_001" parent="." index="12"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="base road _001" parent="Scene Collection/damlevel_v1/around the outside 1" index="6"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="base road _001" parent="." index="13"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="dam side dividing wall_002" parent="Scene Collection/damlevel_v1/around the outside 1" index="7"]
-surface_material_override/0 = ExtResource("2_7pa3g")
+[node name="dam side dividing wall_002" parent="." index="14"]
+surface_material_override/0 = ExtResource("5_lenty")
 
-[node name="dam side dividing wall_003" parent="Scene Collection/damlevel_v1/around the outside 1" index="8"]
-surface_material_override/0 = ExtResource("2_7pa3g")
+[node name="dam side dividing wall_003" parent="." index="15"]
+surface_material_override/0 = ExtResource("5_lenty")
 
-[node name="dam side dividing wall_004" parent="Scene Collection/damlevel_v1/around the outside 1" index="9"]
-surface_material_override/0 = ExtResource("2_7pa3g")
+[node name="dam side dividing wall_004" parent="." index="16"]
+surface_material_override/0 = ExtResource("5_lenty")
 
-[node name="base road " parent="Scene Collection/damlevel_v1/around the outside 1" index="10"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="base road " parent="." index="17"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="building" parent="Scene Collection/damlevel_v1/around the outside 1/dam side building" index="0"]
-surface_material_override/0 = ExtResource("2_7pa3g")
+[node name="building" parent="." index="18"]
+surface_material_override/0 = ExtResource("5_lenty")
+surface_material_override/1 = ExtResource("4_yng5b")
 
-[node name="entrance door " parent="Scene Collection/damlevel_v1/around the outside 1/dam side building" index="1"]
-transform = Transform3D(0.9855122, 0, -0.16960444, 0, 1, 0, 0.16960444, 0, 0.9855122, 104.90535, 19.856747, 38.455704)
+[node name="building interior" parent="." index="19"]
+surface_material_override/0 = ExtResource("2_yng5b")
+surface_material_override/1 = ExtResource("2_gtevu")
+surface_material_override/2 = ExtResource("3_h74lt")
 
-[node name="building interior" parent="Scene Collection/damlevel_v1/around the outside 1/dam side building/Interior" index="0"]
-surface_material_override/0 = ExtResource("5_gtevu")
-surface_material_override/1 = ExtResource("2_b7e4v")
-surface_material_override/2 = ExtResource("2_gspgv")
+[node name="Jonathan hideaway box_001" parent="." index="35"]
+surface_material_override/0 = ExtResource("7_lenty")
 
-[node name="Jonathan hideaway box_001" parent="Scene Collection/damlevel_v1/around the outside 1/dam side building/Interior" index="16"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="stairs cliff" parent="." index="41"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="stairs cliff" parent="Scene Collection/damlevel_v1/cliffs/manmade" index="0"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="stairs railing_001" parent="stairs cliff" index="0"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="stairs railing_001" parent="Scene Collection/damlevel_v1/cliffs/manmade/stairs cliff" index="0"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="stairs cliff_001" parent="." index="42"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="stairs cliff_001" parent="Scene Collection/damlevel_v1/cliffs/manmade" index="1"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="stairs railing" parent="stairs cliff_001" index="0"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="stairs railing" parent="Scene Collection/damlevel_v1/cliffs/manmade/stairs cliff_001" index="0"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="stairs platform" parent="." index="43"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="stairs platform" parent="Scene Collection/damlevel_v1/cliffs/manmade" index="2"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="cliff building " parent="." index="44"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="cliff building " parent="Scene Collection/damlevel_v1/cliffs/manmade" index="3"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="stairs platform_001" parent="." index="45"]
+surface_material_override/0 = ExtResource("3_h74lt")
 
-[node name="stairs platform_001" parent="Scene Collection/damlevel_v1/cliffs/manmade" index="4"]
-surface_material_override/0 = ExtResource("2_gspgv")
+[node name="stairs cliff_002" parent="." index="46"]
+surface_material_override/0 = ExtResource("3_h74lt")
+
+[node name="stairs cliff_003" parent="." index="47"]
+surface_material_override/0 = ExtResource("3_h74lt")

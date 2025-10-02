@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dfp10qb1te57v"
-path="res://.godot/imported/DamLevel1_to use.glb-50b7bac293ee95faf068f023d7866964.scn"
+uid="uid://cnw0mab1wn5qo"
+path="res://.godot/imported/DoorOnly.glb-27652095b34ab9807ef8ccaf18bbca9f.scn"
 
 [deps]
 
-source_file="res://assets/damLevel_v1/DamLevel1_to use.glb"
-dest_files=["res://.godot/imported/DamLevel1_to use.glb-50b7bac293ee95faf068f023d7866964.scn"]
+source_file="res://assets/damLevel_v1/DoorOnly.glb"
+dest_files=["res://.godot/imported/DoorOnly.glb-27652095b34ab9807ef8ccaf18bbca9f.scn"]
 
 [params]
 

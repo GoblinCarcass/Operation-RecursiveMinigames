@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://j51a8iiipcuy"]
+[gd_scene load_steps=8 format=3 uid="uid://j51a8iiipcuy"]
 
 [ext_resource type="Script" uid="uid://dp8m5hsfjukp3" path="res://scenes/levels/dam_level_v1/dam_level_v_1.gd" id="1_4l0mj"]
 [ext_resource type="PackedScene" uid="uid://bdswyg3fc4oyr" path="res://assets/damLevel_v1/dam_level_1_to_use.tscn" id="1_7vhcx"]
 [ext_resource type="PackedScene" uid="uid://b64uwqgcc1o8i" path="res://scenes/components/spawner/spawner_component.tscn" id="1_cgamt"]
+[ext_resource type="PackedScene" uid="uid://c41wvoh32ut12" path="res://assets/damLevel_v1/door_only.tscn" id="4_1bj1m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4l0mj"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -35,3 +36,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.790146, 16.85487, 50.4448
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="DamLevel1_to use" parent="Visuals" instance=ExtResource("1_7vhcx")]
+
+[node name="DoorOnly" parent="Visuals" instance=ExtResource("4_1bj1m")]

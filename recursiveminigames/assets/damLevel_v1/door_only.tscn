@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c41wvoh32ut12"]
+
+[ext_resource type="PackedScene" uid="uid://cnw0mab1wn5qo" path="res://assets/damLevel_v1/DoorOnly.glb" id="1_pawp4"]
+[ext_resource type="Material" uid="uid://dyaqyse0hua8f" path="res://assets/damLevel_v1/textures/painted scratched metal/painted scratched metal.tres" id="2_n6knb"]
+[ext_resource type="Material" path="res://assets/damLevel_v1/textures/anisotropic metal 128x/anisotropic metal 128x.tres" id="3_np0w3"]
+
+[node name="DoorOnly" instance=ExtResource("1_pawp4")]
+
+[node name="entrance door frame" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_n6knb")
+
+[node name="entrance door side hinge" parent="entrance door frame" index="0"]
+surface_material_override/0 = ExtResource("3_np0w3")
+
+[node name="entrance door" parent="." index="1"]
+transform = Transform3D(0.17364785, 0, -0.9848077, 0, 1, 0, 0.9848077, 0, 0.17364785, 104.95739, 17.170975, 40.5003)
+surface_material_override/0 = ExtResource("2_n6knb")
+surface_material_override/1 = ExtResource("3_np0w3")
+
+[node name="entrance door side" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_n6knb")
+surface_material_override/1 = ExtResource("3_np0w3")

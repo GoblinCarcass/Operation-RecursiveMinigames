@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dblwt6npxdn2d"]
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://c8t3vh3i7pxau"]
 
 [ext_resource type="Texture2D" uid="uid://bqy5bsncdqj7e" path="res://assets/damLevel_v1/textures/bad concrete gravel tiles/bad concrete gravel tiles_albedo.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://ciuliwv72acno" path="res://assets/damLevel_v1/textures/bad concrete gravel tiles/bad concrete gravel tiles_orm.png" id="2"]
