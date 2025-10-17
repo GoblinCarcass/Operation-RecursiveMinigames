@@ -7,16 +7,18 @@
 [node name="DoorOnly" instance=ExtResource("1_pawp4")]
 
 [node name="entrance door frame" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.054039, 1.6511974, 0.008628845)
 surface_material_override/0 = ExtResource("2_n6knb")
 
 [node name="entrance door side hinge" parent="entrance door frame" index="0"]
 surface_material_override/0 = ExtResource("3_np0w3")
 
 [node name="entrance door" parent="." index="1"]
-transform = Transform3D(0.17364785, 0, -0.9848077, 0, 1, 0, 0.9848077, 0, 0.17364785, 104.95739, 17.170975, 40.5003)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.039535522, 0.46542358, 1.0532227)
 surface_material_override/0 = ExtResource("2_n6knb")
 surface_material_override/1 = ExtResource("3_np0w3")
 
 [node name="entrance door side" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045326233, 0.46541977, -1.0326118)
 surface_material_override/0 = ExtResource("2_n6knb")
 surface_material_override/1 = ExtResource("3_np0w3")

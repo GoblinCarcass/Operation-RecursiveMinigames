@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq07u7k5r7u4y"]
+
+[ext_resource type="Script" uid="uid://c8x7lsq10emvk" path="res://scenes/entities/door/door.gd" id="1_677e6"]
+[ext_resource type="Script" uid="uid://du167luk4qlo5" path="res://scenes/components/interaction/interaction_component.gd" id="2_ffn68"]
+[ext_resource type="PackedScene" uid="uid://c41wvoh32ut12" path="res://assets/damLevel_v1/door_only.tscn" id="2_yy8rg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mscuf"]
+size = Vector3(0.829834, 3.3420596, 2.3751202)
+
+[node name="Door" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_677e6")
+
+[node name="InteractionComponent" type="Area3D" parent="." groups=["interactable"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_ffn68")
+cursor_text = "Press E to Open"
+metadata/_custom_type_script = "uid://du167luk4qlo5"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033813477, 1.6486185, 0.014304161)
+shape = SubResource("BoxShape3D_mscuf")
+debug_color = Color(0.59078586, 0, 0.70196074, 0.41960785)
+
+[node name="Mesh" parent="." instance=ExtResource("2_yy8rg")]
+
+[connection signal="interaction_started" from="InteractionComponent" to="." method="_on_interaction_component_interaction_started"]
+
+[editable path="Mesh"]
