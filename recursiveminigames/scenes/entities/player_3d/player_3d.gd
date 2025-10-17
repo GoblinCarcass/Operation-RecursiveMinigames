@@ -36,7 +36,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		SignalBus.dialog_acknowledged.emit()
 
 
-
 func _physics_process(_delta: float) -> void:
 	_i_object = i_ray.get_collider()
 	if _i_object:
@@ -46,8 +45,6 @@ func _physics_process(_delta: float) -> void:
 	else:
 		SignalBus.crosshair_text_changed.emit(" ")
 
-# Signal Calls! =========================================================================================
-
 
 func _on_movement_mode_set(mode: bool):
 	_can_move = mode
@@ -55,16 +52,6 @@ func _on_movement_mode_set(mode: bool):
 
 func _on_camera_rotation_mode_set(mode: bool):
 	_can_rotate_camera = mode
-
-
-func _on_tree_exited():
-	if SignalBus.player_movement_mode_set.is_connected(_on_movement_mode_set):
-		SignalBus.player_movement_mode_set.disconnect(_on_movement_mode_set)
-	if SignalBus.player_can_rotate_camera_mode_set.is_connected(_on_camera_rotation_mode_set):
-		SignalBus.player_can_rotate_camera_mode_set.disconnect(_on_camera_rotation_mode_set)
-
-
-# End of Signal Calls! ==================================================================================
 
 
 # One Giant State Machine: Proceed with caution! ===================================================
@@ -157,3 +144,10 @@ func handle_movement(speed: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+
+
+func _on_tree_exited():
+	if SignalBus.player_movement_mode_set.is_connected(_on_movement_mode_set):
+		SignalBus.player_movement_mode_set.disconnect(_on_movement_mode_set)
+	if SignalBus.player_can_rotate_camera_mode_set.is_connected(_on_camera_rotation_mode_set):
+		SignalBus.player_can_rotate_camera_mode_set.disconnect(_on_camera_rotation_mode_set)
