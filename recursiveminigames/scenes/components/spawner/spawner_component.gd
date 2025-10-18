@@ -43,9 +43,9 @@ func _ready() -> void:
 
 
 ## Find a specific spawn point by it's name. It should be slightly faster than the regular String.
-func _get_spawn_point(node_name: String, arr: Array) -> Node:
+func _get_spawn_point(node_name: String, array: Array) -> Node:
 	var spawn_point: Node = null
-	for i in arr:
+	for i in array:
 		if i.name != node_name:
 			continue
 		spawn_point = i

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw3tvk0ebitr0"]
+
+[sub_resource type="Environment" id="Environment_uitjj"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5ut0r"]
+
+[node name="DemoHackingMinigame" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uitjj")
+camera_attributes = SubResource("CameraAttributesPractical_5ut0r")
