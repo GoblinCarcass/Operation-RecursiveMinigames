@@ -61,10 +61,6 @@ folder_colors={
 "res://scripts/": "pink"
 }
 
-[global_group]
-
-interactable="A group for every single object that can be interacted with. Pretty cool, innit?"
-
 [godot_resource_groups]
 
 auto_rebuild=true

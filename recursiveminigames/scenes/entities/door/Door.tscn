@@ -12,7 +12,7 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_677e6")
 
-[node name="InteractionComponent" type="Area3D" parent="." groups=["interactable"]]
+[node name="InteractionComponent" type="Area3D" parent="."]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_ffn68")

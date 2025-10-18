@@ -43,7 +43,7 @@ script = ExtResource("1_d2j6x")
 shape = SubResource("ConcavePolygonShape3D_j6yri")
 script = SubResource("GDScript_j6yri")
 
-[node name="InteractionComponent" type="Area3D" parent="." groups=["interactable"]]
+[node name="InteractionComponent" type="Area3D" parent="."]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_60ruv")

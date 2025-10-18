@@ -39,7 +39,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	_i_object = i_ray.get_collider()
 	if _i_object:
-		if not _i_object.is_in_group("interactable"):
+		if not _i_object is InteractionComponent:
 			return
 		SignalBus.crosshair_text_changed.emit(_i_object.get_cursor_text())
 	else:
@@ -103,8 +103,9 @@ func _on_jumping_state_entered() -> void:
 func handle_interaction() -> void:
 	_i_object = i_ray.get_collider()
 	if not _i_object:
+		
 		return
-	if _i_object.is_in_group("interactable"):
+	if _i_object is InteractionComponent:
 		_i_object.interact()
 
 
