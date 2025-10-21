@@ -6,4 +6,4 @@ const PLAYER = preload(Paths.TEST_PLAYER_3D)
 @onready var spawner_component: SpawnerComponent = $SpawnerComponent
 
 func _ready() -> void:
-	spawner_component.spawn_entity(PLAYER.instantiate(), "Default")
+	spawner_component.spawn(PLAYER.instantiate(), "Default")
