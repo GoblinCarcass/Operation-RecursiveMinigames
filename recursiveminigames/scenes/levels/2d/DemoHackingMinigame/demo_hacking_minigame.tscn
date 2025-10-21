@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=4 uid="uid://cw3tvk0ebitr0"]
 
 [ext_resource type="Texture2D" uid="uid://bypwn5xqbjqxx" path="res://assets/tilesets/hex/Minimalistic Hexagonal/Tileset_Hexagonal_FlatTop_60x39_60x60.png" id="1_5ut0r"]
-[ext_resource type="Script" uid="uid://dc2gyctln5m6w" path="res://scenes/components/spawner/spawner_component.gd" id="1_f8avb"]
 [ext_resource type="Script" uid="uid://bct674inbr4xq" path="res://scenes/levels/2d/DemoHackingMinigame/demo_hacking_minigame.gd" id="1_yakl7"]
+[ext_resource type="PackedScene" uid="uid://blyfy4ap6lvv2" path="res://scenes/entities/player_hex/player_hex.tscn" id="2_yakl7"]
 
 [sub_resource type="Environment" id="Environment_uitjj"]
 
@@ -10,6 +10,7 @@
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5ut0r"]
 resource_name = "Entities"
+scenes/1/scene = ExtResource("2_yakl7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yakl7"]
 texture = ExtResource("1_5ut0r")
@@ -19,31 +20,32 @@ texture_region_size = Vector2i(60, 60)
 2:0/0 = 0
 3:0/0 = 0
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
 3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
 
 [sub_resource type="TileSet" id="TileSet_gsa0c"]
 tile_shape = 3
 tile_offset_axis = 1
 tile_size = Vector2i(60, 38)
+physics_layer_0/collision_layer = 1
 sources/5 = SubResource("TileSetAtlasSource_yakl7")
 sources/0 = SubResource("TileSetScenesCollectionSource_5ut0r")
 
 [node name="DemoHackingMinigame" type="Node2D"]
 script = ExtResource("1_yakl7")
-
-[node name="SpawnerComponent" type="Node" parent="."]
-script = ExtResource("1_f8avb")
-dimensions = 1
-metadata/_custom_type_script = "uid://dc2gyctln5m6w"
-
-[node name="player_start" type="Marker2D" parent="SpawnerComponent"]
-position = Vector2(121, 147)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uitjj")

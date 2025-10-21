@@ -21,4 +21,30 @@ shape = SubResource("CircleShape2D_20tfj")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="Up" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -30)
+target_position = Vector2(0, -10)
+
+[node name="UpLeft" type="RayCast2D" parent="Raycasts"]
+position = Vector2(-40, -12)
+target_position = Vector2(-6, -10)
+
+[node name="UpRight" type="RayCast2D" parent="Raycasts"]
+position = Vector2(40, -12)
+target_position = Vector2(6, -10)
+
+[node name="Down" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 30)
+target_position = Vector2(0, 10)
+
+[node name="DownLeft" type="RayCast2D" parent="Raycasts"]
+position = Vector2(-40, 12)
+target_position = Vector2(-6, 10)
+
+[node name="DownRight" type="RayCast2D" parent="Raycasts"]
+position = Vector2(40, 12)
+target_position = Vector2(6, 10)
+
 [connection signal="texture_changed" from="Sprite2D" to="Sprite2D" method="_on_texture_changed"]
