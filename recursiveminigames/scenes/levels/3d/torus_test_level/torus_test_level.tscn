@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dltmtdkqo6yid"]
 
-[ext_resource type="Script" uid="uid://cqlcwhgfwhsv8" path="res://scenes/levels/torus_test_level/torus_test_level.gd" id="1_tq8hf"]
+[ext_resource type="Script" uid="uid://cqlcwhgfwhsv8" path="res://scenes/levels/3d/torus_test_level/torus_test_level.gd" id="1_tq8hf"]
 [ext_resource type="PackedScene" uid="uid://b64uwqgcc1o8i" path="res://scenes/components/spawner/spawner_component.tscn" id="2_iajpi"]
 [ext_resource type="PackedScene" uid="uid://b1hs4i2co5s46" path="res://scenes/entities/npc/torus/torus_npc.tscn" id="2_v53oc"]
 [ext_resource type="PackedScene" uid="uid://big5ctwcxjhbq" path="res://assets/damLevel/dam_test.tscn" id="3_tq8hf"]

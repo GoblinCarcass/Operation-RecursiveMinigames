@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=4 uid="uid://cw3tvk0ebitr0"]
+
+[ext_resource type="Texture2D" uid="uid://bypwn5xqbjqxx" path="res://assets/tilesets/hex/Minimalistic Hexagonal/Tileset_Hexagonal_FlatTop_60x39_60x60.png" id="1_5ut0r"]
+[ext_resource type="Script" uid="uid://bct674inbr4xq" path="res://scenes/levels/2d/DemoHackingMinigame/demo_hacking_minigame.gd" id="1_yakl7"]
+[ext_resource type="PackedScene" uid="uid://blyfy4ap6lvv2" path="res://scenes/entities/player_hex/player_hex.tscn" id="2_yakl7"]
+
+[sub_resource type="Environment" id="Environment_uitjj"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_f8avb"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_yakl7"]
+tile_data = PackedInt32Array(0, 5, 0, 65536, 5, 0, 131072, 5, 0, 196608, 5, 0, 1, 5, 0, 65537, 5, 0, 131073, 5, 0, 196609, 196613, 1, 2, 196613, 1, 65538, 5, 0, 131074, 5, 0, 196610, 5, 0, 3, 65541, 1, 65539, 5, 0, 131075, 5, 0, 196611, 5, 0, 4, 5, 0, 65540, 5, 0, 131076, 5, 0, 196612, 5, 0)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5ut0r"]
+resource_name = "Entities"
+scenes/1/scene = ExtResource("2_yakl7")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yakl7"]
+texture = ExtResource("1_5ut0r")
+texture_region_size = Vector2i(60, 60)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 10)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 10)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 10)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, 10)
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, 10)
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, 0, -15, -19, 15, -19, 30, 0, 15, 19, -15, 19)
+2:1/0 = 0
+2:1/0/texture_origin = Vector2i(0, 10)
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, 0, -15, -19, 15, -19, 30, 0, 15, 19, -15, 19)
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, 10)
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, 0, -15, -19, 15, -19, 30, 0, 15, 19, -15, 19)
+0:1/next_alternative_id = 2
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 10)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, 0, -15, -19, 15, -19, 30, 0, 15, 19, -15, 19)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, 10)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, 0, -15, -19, 15, -19, 30, 0, 15, 19, -15, 19)
+1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, 10)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, 0, -15, -19, 15, -19, 30, 0, 15, 19, -15, 19)
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(0, 10)
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, 0, -15, -19, 15, -19, 30, 0, 15, 19, -15, 19)
+3:2/0 = 0
+3:2/0/texture_origin = Vector2i(0, 10)
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30, 0, -15, -19, 15, -19, 30, 0, 15, 19, -15, 19)
+
+[sub_resource type="TileSet" id="TileSet_gsa0c"]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(60, 38)
+physics_layer_0/collision_layer = 1
+sources/5 = SubResource("TileSetAtlasSource_yakl7")
+sources/0 = SubResource("TileSetScenesCollectionSource_5ut0r")
+pattern_0 = SubResource("TileMapPattern_yakl7")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gsa0c"]
+resource_name = "Entities"
+scenes/1/scene = ExtResource("2_yakl7")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vcdgs"]
+texture = ExtResource("1_5ut0r")
+texture_region_size = Vector2i(60, 60)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.154713, 9.558922, -15.13496, -8.603029, 15.772221, -8.284399, 29.791973, 10.8334465, 15.13496, 29.31403, -15.453592, 29.63266)
+
+[sub_resource type="TileSet" id="TileSet_nqic3"]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(60, 38)
+physics_layer_0/collision_layer = 1
+sources/5 = SubResource("TileSetAtlasSource_vcdgs")
+sources/0 = SubResource("TileSetScenesCollectionSource_gsa0c")
+
+[node name="DemoHackingMinigame" type="Node2D"]
+script = ExtResource("1_yakl7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uitjj")
+camera_attributes = SubResource("CameraAttributesPractical_f8avb")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="TileMap" type="Node2D" parent="Visuals"]
+texture_filter = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Visuals/TileMap"]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAFAAUABQADAAEAAAADAAMABQAAAAAAAAAEAAMABQAAAAAAAAAFAAIABQAAAAAAAAAGAAIABQAAAAAAAAAHAAEABQAAAAAAAAAIAAEABQAAAAAAAAAJAAAABQAAAAAAAAAJAAEABQAAAAAAAAAKAAEABQAAAAAAAAALAAAABQAAAAAAAAALAAEABQAAAAAAAAAMAAEABQAAAAAAAAANAAAABQAAAAAAAAANAAEABQAAAAAAAAAOAAEABQAAAAAAAAAPAAAABQAAAAAAAAAPAAEABQAAAAAAAAAOAAIABQAAAAAAAAANAAIABQAAAAAAAAAGAAMABQAAAAAAAAAFAAMABQAAAAAAAAAEAAQABQACAAIAAAADAAQABQACAAAAAAACAAQABQACAAAAAAACAAMABQAAAAAAAAADAAIABQAAAAAAAAAEAAIABQAAAAAAAAAFAAEABQAAAAAAAAAGAAEABQAAAAAAAAAHAAAABQAAAAAAAAAFAAAABQAAAAAAAAAEAAEABQAAAAAAAAADAAAABQAAAAAAAAACAAEABQAAAAAAAAABAAAABQAAAAAAAAABAAEABQAAAAAAAAABAAIABQAAAAAAAAACAAIABQAAAAAAAAADAAEABQAAAAAAAAABAAMABQACAAAAAAABAAQABQABAAEAAAABAAUABQABAAEAAAACAAUABQABAAEAAAACAAYABQABAAEAAAADAAUABQABAAEAAAAEAAUABQACAAIAAAAFAAQABQACAAIAAAAGAAQABQAAAAAAAAANAAMABQAAAAAAAAAOAAMABQAAAAAAAAAPAAIABQAAAAAAAAAPAAMABQAAAAAAAAAOAAQABQAAAAAAAAANAAQABQAAAAAAAAAGAAUABQAAAAAAAAAGAAYABQACAAAAAAAHAAYABQACAAAAAAAIAAcABQACAAAAAAAHAAcABQABAAEAAAAGAAcABQABAAEAAAAFAAYABQABAAEAAAAEAAYABQABAAEAAAADAAYABQABAAEAAAACAAcABQABAAEAAAABAAYABQABAAEAAAABAAcABQABAAEAAAADAAcABQABAAEAAAAEAAcABQABAAEAAAAFAAcABQABAAEAAAAJAAcABQAAAAAAAAAKAAcABQAAAAAAAAANAAUABQAAAAAAAAAOAAUABQAAAAAAAAAPAAQABQAAAAAAAAAPAAUABQAAAAAAAAAOAAYABQAAAAAAAAANAAYABQAAAAAAAAAMAAcABQAAAAAAAAALAAcABQAAAAAAAAANAAcABQAAAAAAAAAOAAcABQAAAAAAAAAPAAYABQAAAAAAAAAPAAcABQAAAAAAAAAEAAgABQAAAAEAAAADAAgABQAAAAEAAAACAAgABQAAAAEAAAABAAgABQAAAAEAAAAAAAgABQAAAAEAAAAAAAcABQAAAAEAAAAAAAYABQAAAAEAAAAAAAUABQAAAAEAAAAAAAQABQAAAAEAAAAAAAMABQAAAAEAAAAAAAIABQAAAAEAAAAAAAEABQAAAAEAAAAAAAAABQAAAAEAAAABAP//BQAAAAEAAAACAAAABQAAAAEAAAADAP//BQAAAAEAAAAEAAAABQAAAAEAAAAFAP//BQAAAAEAAAAGAAAABQAAAAEAAAAHAP//BQAAAAEAAAAIAAAABQAAAAEAAAAJAP//BQAAAAEAAAAKAAAABQAAAAEAAAALAP//BQAAAAEAAAAMAAAABQAAAAEAAAANAP//BQAAAAEAAAAOAAAABQAAAAEAAAAPAP//BQAAAAEAAAAQAAAABQAAAAEAAAAQAAEABQAAAAEAAAAQAAIABQAAAAEAAAAQAAMABQAAAAEAAAAQAAQABQAAAAEAAAAQAAUABQAAAAEAAAAQAAYABQAAAAEAAAAQAAcABQAAAAEAAAAQAAgABQAAAAEAAAAPAAgABQAAAAEAAAAOAAgABQAAAAEAAAANAAgABQAAAAEAAAAMAAgABQAAAAEAAAALAAgABQAAAAEAAAAKAAgABQAAAAEAAAAJAAgABQAAAAEAAAAIAAgABQAAAAEAAAAHAAgABQAAAAEAAAAGAAgABQAAAAEAAAAFAAgABQAAAAEAAAAHAAIABQAAAAAAAAAHAAMABQAAAAAAAAAHAAQABQAAAAAAAAAHAAUABQAAAAAAAAAIAAIABQAAAAAAAAAJAAIABQAAAAAAAAAKAAIABQAAAAAAAAALAAIABQABAAEAAAAMAAIABQAAAAAAAAAIAAMABQAAAAAAAAAIAAQABQAAAAAAAAAIAAUABQAAAAAAAAAIAAYABQAAAAAAAAAJAAMABQAAAAAAAAAJAAQABQAAAAAAAAAJAAUABQAAAAAAAAAJAAYABQADAAEAAAAKAAMABQADAAEAAAAKAAQABQAAAAAAAAAKAAUABQAAAAAAAAAKAAYABQAAAAAAAAALAAMABQABAAEAAAALAAQABQAAAAAAAAALAAUABQAAAAAAAAALAAYABQAAAAAAAAAMAAMABQAAAAAAAAAMAAQABQAAAAAAAAAMAAUABQAAAAAAAAAMAAYABQAAAAAAAAA=")
+tile_set = SubResource("TileSet_gsa0c")
+
+[node name="EntityLayer" type="TileMapLayer" parent="Visuals/TileMap"]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAACAAMAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_nqic3")

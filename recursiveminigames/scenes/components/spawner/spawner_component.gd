@@ -14,8 +14,8 @@ func get_last_spawned_entity() -> Node:
 	return _last_spawned_entity
 
 var _spawned_entites: Array[Node] = []
-var _spawn_points_2d: Array[Node2D] = []
-var _spawn_points_3d: Array[Node3D] = []
+@export var spawn_points: Array[Node] = []
+
 
 
 func _ready() -> void:
@@ -31,7 +31,7 @@ func _ready() -> void:
 					assert(false, "The spawn point child of the SpawnerComponent has incorrect dimensions!
 					This Spawner only accepts 3D Nodes!")
 					continue
-				_spawn_points_3d.append(child)
+				spawn_points.append(child)
 		1: # 2D
 			for child in children:
 				if child is not Node2D:
@@ -39,13 +39,13 @@ func _ready() -> void:
 					"The child of the SpawnerComponent has incorrect dimensions!
 					This Spawner only accepts 2D Nodes!")
 					continue
-				_spawn_points_2d.append(child)
+				spawn_points.append(child)
 
 
 ## Find a specific spawn point by it's name. It should be slightly faster than the regular String.
-func _get_spawn_point(node_name: String, arr: Array) -> Node:
+func _get_spawn_point(node_name: String, array: Array) -> Node:
 	var spawn_point: Node = null
-	for i in arr:
+	for i in array:
 		if i.name != node_name:
 			continue
 		spawn_point = i
@@ -65,7 +65,7 @@ func _setup_entity_in_scene_tree(entity: Node, spawn_point: Node):
 	entity_spawned.emit(entity)
 
 
-func spawn_entity(entity: Node, spawn_name: String):
+func spawn(entity: Node, spawn_name: String):
 	# Step 1: Get the desired entity
 	# Step 2: Get the desired destination
 	# Step 3: Ship the entity to the destination
@@ -73,7 +73,7 @@ func spawn_entity(entity: Node, spawn_name: String):
 	
 	match dimensions:
 		0: # 3D
-			var spawn_point: Node3D = _get_spawn_point(spawn_name, _spawn_points_3d)
+			var spawn_point: Node3D = _get_spawn_point(spawn_name, spawn_points)
 			if null == spawn_point:
 				printerr("SpawnerComponent has no 3D spawner children")
 				return
@@ -84,7 +84,7 @@ func spawn_entity(entity: Node, spawn_name: String):
 			_setup_entity_in_scene_tree(entity, spawn_point)
 			
 		1: # 2D
-			var spawn_point: Node2D = _get_spawn_point(spawn_name, _spawn_points_2d)
+			var spawn_point: Node2D = _get_spawn_point(spawn_name, spawn_points)
 			if null == spawn_point:
 				printerr("SpawnerController has no 2D spawner children")
 				return

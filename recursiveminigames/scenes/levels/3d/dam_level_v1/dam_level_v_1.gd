@@ -6,4 +6,4 @@ const PLAYER_3D = preload(Paths.TEST_PLAYER_3D)
 
 func _ready() -> void:
 	
-	spawner_component.spawn_entity(PLAYER_3D.instantiate(), "default-spawn")
+	spawner_component.spawn(PLAYER_3D.instantiate(), "default-spawn")
