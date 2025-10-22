@@ -26,6 +26,9 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			get_tree().quit()
 	if event is InputEventMouseMotion:
 		handle_camera_rotation(event)
 	if event.is_action_pressed("interaction"):

@@ -24,7 +24,7 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="RecursiveMinigames"
-config/tags=PackedStringArray("project")
+config/tags=PackedStringArray("3d", "project")
 run/main_scene="uid://dmbggi5tr63fp"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

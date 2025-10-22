@@ -20,6 +20,7 @@ shape = SubResource("CircleShape2D_20tfj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+process_callback = 0
 
 [node name="Raycasts" type="Node2D" parent="."]
 
